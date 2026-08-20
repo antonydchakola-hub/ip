@@ -20,99 +20,117 @@ public class Vector {
         // ArrayList to store tasks dynamically
         ArrayList<Task> tasks = new ArrayList<>();
         
-        while (true) {
+        boolean isRunning = true;
+        while (isRunning) {
             String input = scanner.nextLine();
             try {
-                if (input.equals("bye")) {
-                    System.out.println(line);
-                    System.out.println("     Bye. Hope to see you again soon!");
-                    System.out.println(line);
-                    break;
-                } else if (input.equals("list")) {
-                    // Display all accumulated tasks with their completion status
-                    System.out.println(line);
-                    System.out.println("     Here are the tasks in your list:");
-                    for (int i = 0; i < tasks.size(); i++) {
-                        System.out.println("     " + (i + 1) + "." + tasks.get(i).toString());
-                    }
-                    System.out.println(line);
-                } else if (input.startsWith("delete")) {
-                    if (input.length() <= 7) {
-                        throw new VectorException("Please specify which task you want to delete. For example: delete 1");
-                    }
-                    int taskIndex = Integer.parseInt(input.substring(7).trim()) - 1;
-                    Task removedTask = tasks.remove(taskIndex);
-                    System.out.println(line);
-                    System.out.println("     Noted. I've removed this task:");
-                    System.out.println("       " + removedTask.toString());
-                    System.out.println("     Now you have " + tasks.size() + " tasks in the list.");
-                    System.out.println(line);
-                } else if (input.startsWith("mark")) {
-                    if (input.length() <= 5) {
-                        throw new VectorException("Please specify which task you want to mark. For example: mark 1");
-                    }
-                    int taskIndex = Integer.parseInt(input.substring(5).trim()) - 1;
-                    tasks.get(taskIndex).markAsDone();
-                    System.out.println(line);
-                    System.out.println("     Nice! I've marked this task as done:");
-                    System.out.println("       " + tasks.get(taskIndex).toString());
-                    System.out.println(line);
-                } else if (input.startsWith("unmark")) {
-                    if (input.length() <= 7) {
-                        throw new VectorException("Please specify which task you want to unmark. For example: unmark 1");
-                    }
-                    int taskIndex = Integer.parseInt(input.substring(7).trim()) - 1;
-                    tasks.get(taskIndex).unmarkAsDone();
-                    System.out.println(line);
-                    System.out.println("     OK, I've marked this task as not done yet:");
-                    System.out.println("       " + tasks.get(taskIndex).toString());
-                    System.out.println(line);
-                } else if (input.startsWith("todo")) {
-                    if (input.length() <= 4 || input.substring(4).trim().isEmpty()) {
-                        throw new VectorException("A todo task must have a description. Please try again.");
-                    }
-                    String description = input.substring(5).trim();
-                    tasks.add(new Todo(description));
-                    System.out.println(line);
-                    System.out.println("     Got it. I've added this task:");
-                    System.out.println("       " + tasks.get(tasks.size() - 1).toString());
-                    System.out.println("     Now you have " + tasks.size() + " tasks in the list.");
-                    System.out.println(line);
-                } else if (input.startsWith("deadline")) {
-                    if (input.length() <= 8 || input.substring(8).trim().isEmpty()) {
-                        throw new VectorException("A deadline task requires a description and a /by date. Please try again.");
-                    }
-                    String[] parts = input.substring(9).split(" /by ");
-                    if (parts.length < 2 || parts[0].trim().isEmpty() || parts[1].trim().isEmpty()) {
-                        throw new VectorException("The deadline format is incorrect. Use: deadline <task> /by <date/time>");
-                    }
-                    tasks.add(new Deadline(parts[0].trim(), parts[1].trim()));
-                    System.out.println(line);
-                    System.out.println("     Got it. I've added this task:");
-                    System.out.println("       " + tasks.get(tasks.size() - 1).toString());
-                    System.out.println("     Now you have " + tasks.size() + " tasks in the list.");
-                    System.out.println(line);
-                } else if (input.startsWith("event")) {
-                    if (input.length() <= 5 || input.substring(5).trim().isEmpty()) {
-                        throw new VectorException("An event task requires a description, a /from time, and a /to time.");
-                    }
-                    String[] parts = input.substring(6).split(" /from ");
-                    if (parts.length < 2) {
-                        throw new VectorException("The event format is incomplete. Ensure you have a /from time and a /to time.");
-                    }
-                    String description = parts[0].trim();
-                    String[] timeParts = parts[1].split(" /to ");
-                    if (timeParts.length < 2 || description.isEmpty() || timeParts[0].trim().isEmpty() || timeParts[1].trim().isEmpty()) {
-                         throw new VectorException("The event format is incorrect. Use: event <task> /from <start> /to <end>");
-                    }
-                    tasks.add(new Event(description, timeParts[0].trim(), timeParts[1].trim()));
-                    System.out.println(line);
-                    System.out.println("     Got it. I've added this task:");
-                    System.out.println("       " + tasks.get(tasks.size() - 1).toString());
-                    System.out.println("     Now you have " + tasks.size() + " tasks in the list.");
-                    System.out.println(line);
-                } else {
-                    throw new VectorException("I don't recognize that command. Valid commands are: todo, deadline, event, list, mark, unmark, delete, bye.");
+                String[] inputParts = input.split(" ", 2);
+                Command command = Command.fromString(inputParts[0]);
+
+                switch (command) {
+                    case BYE:
+                        if (!input.equals("bye")) {
+                            throw new VectorException("I don't recognize that command. Valid commands are: todo, deadline, event, list, mark, unmark, delete, bye.");
+                        }
+                        System.out.println(line);
+                        System.out.println("     Bye. Hope to see you again soon!");
+                        System.out.println(line);
+                        isRunning = false;
+                        break;
+                    case LIST:
+                        if (!input.equals("list")) {
+                            throw new VectorException("I don't recognize that command. Valid commands are: todo, deadline, event, list, mark, unmark, delete, bye.");
+                        }
+                        System.out.println(line);
+                        System.out.println("     Here are the tasks in your list:");
+                        for (int i = 0; i < tasks.size(); i++) {
+                            System.out.println("     " + (i + 1) + "." + tasks.get(i).toString());
+                        }
+                        System.out.println(line);
+                        break;
+                    case DELETE:
+                        if (inputParts.length < 2 || inputParts[1].trim().isEmpty()) {
+                            throw new VectorException("Please specify which task you want to delete. For example: delete 1");
+                        }
+                        int deleteIndex = Integer.parseInt(inputParts[1].trim()) - 1;
+                        Task removedTask = tasks.remove(deleteIndex);
+                        System.out.println(line);
+                        System.out.println("     Noted. I've removed this task:");
+                        System.out.println("       " + removedTask.toString());
+                        System.out.println("     Now you have " + tasks.size() + " tasks in the list.");
+                        System.out.println(line);
+                        break;
+                    case MARK:
+                        if (inputParts.length < 2 || inputParts[1].trim().isEmpty()) {
+                            throw new VectorException("Please specify which task you want to mark. For example: mark 1");
+                        }
+                        int markIndex = Integer.parseInt(inputParts[1].trim()) - 1;
+                        tasks.get(markIndex).markAsDone();
+                        System.out.println(line);
+                        System.out.println("     Nice! I've marked this task as done:");
+                        System.out.println("       " + tasks.get(markIndex).toString());
+                        System.out.println(line);
+                        break;
+                    case UNMARK:
+                        if (inputParts.length < 2 || inputParts[1].trim().isEmpty()) {
+                            throw new VectorException("Please specify which task you want to unmark. For example: unmark 1");
+                        }
+                        int unmarkIndex = Integer.parseInt(inputParts[1].trim()) - 1;
+                        tasks.get(unmarkIndex).unmarkAsDone();
+                        System.out.println(line);
+                        System.out.println("     OK, I've marked this task as not done yet:");
+                        System.out.println("       " + tasks.get(unmarkIndex).toString());
+                        System.out.println(line);
+                        break;
+                    case TODO:
+                        if (inputParts.length < 2 || inputParts[1].trim().isEmpty()) {
+                            throw new VectorException("A todo task must have a description. Please try again.");
+                        }
+                        tasks.add(new Todo(inputParts[1].trim()));
+                        System.out.println(line);
+                        System.out.println("     Got it. I've added this task:");
+                        System.out.println("       " + tasks.get(tasks.size() - 1).toString());
+                        System.out.println("     Now you have " + tasks.size() + " tasks in the list.");
+                        System.out.println(line);
+                        break;
+                    case DEADLINE:
+                        if (inputParts.length < 2 || inputParts[1].trim().isEmpty()) {
+                            throw new VectorException("A deadline task requires a description and a /by date. Please try again.");
+                        }
+                        String[] deadlineParts = inputParts[1].split(" /by ");
+                        if (deadlineParts.length < 2 || deadlineParts[0].trim().isEmpty() || deadlineParts[1].trim().isEmpty()) {
+                            throw new VectorException("The deadline format is incorrect. Use: deadline <task> /by <date/time>");
+                        }
+                        tasks.add(new Deadline(deadlineParts[0].trim(), deadlineParts[1].trim()));
+                        System.out.println(line);
+                        System.out.println("     Got it. I've added this task:");
+                        System.out.println("       " + tasks.get(tasks.size() - 1).toString());
+                        System.out.println("     Now you have " + tasks.size() + " tasks in the list.");
+                        System.out.println(line);
+                        break;
+                    case EVENT:
+                        if (inputParts.length < 2 || inputParts[1].trim().isEmpty()) {
+                            throw new VectorException("An event task requires a description, a /from time, and a /to time.");
+                        }
+                        String[] eventParts = inputParts[1].split(" /from ");
+                        if (eventParts.length < 2) {
+                            throw new VectorException("The event format is incomplete. Ensure you have a /from time and a /to time.");
+                        }
+                        String desc = eventParts[0].trim();
+                        String[] timeParts = eventParts[1].split(" /to ");
+                        if (timeParts.length < 2 || desc.isEmpty() || timeParts[0].trim().isEmpty() || timeParts[1].trim().isEmpty()) {
+                             throw new VectorException("The event format is incorrect. Use: event <task> /from <start> /to <end>");
+                        }
+                        tasks.add(new Event(desc, timeParts[0].trim(), timeParts[1].trim()));
+                        System.out.println(line);
+                        System.out.println("     Got it. I've added this task:");
+                        System.out.println("       " + tasks.get(tasks.size() - 1).toString());
+                        System.out.println("     Now you have " + tasks.size() + " tasks in the list.");
+                        System.out.println(line);
+                        break;
+                    case UNKNOWN:
+                    default:
+                        throw new VectorException("I don't recognize that command. Valid commands are: todo, deadline, event, list, mark, unmark, delete, bye.");
                 }
             } catch (VectorException e) {
                 System.out.println(line);

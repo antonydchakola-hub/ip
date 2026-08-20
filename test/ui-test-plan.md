@@ -1,6 +1,6 @@
 # Vector Text UI Test Plan
 
-- Setup command: `javac -d _temp/ui-test-classes src/main/java/Task.java src/main/java/Todo.java src/main/java/Deadline.java src/main/java/Event.java src/main/java/VectorException.java src/main/java/Vector.java`
+- Setup command: `javac -d _temp/ui-test-classes src/main/java/Task.java src/main/java/Todo.java src/main/java/Deadline.java src/main/java/Event.java src/main/java/VectorException.java src/main/java/Command.java src/main/java/Vector.java`
 - Program command: `java -cp _temp/ui-test-classes Vector`
 - Timeout seconds: `10`
 
