@@ -46,4 +46,14 @@ public class Task {
     public String getDescription() {
         return this.description;
     }
+
+    /**
+     * Returns the string representation of the task.
+     * 
+     * @return A string in the format "[statusIcon] description".
+     */
+    @Override
+    public String toString() {
+        return "[" + this.getStatusIcon() + "] " + this.description;
+    }
 }

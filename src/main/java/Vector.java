@@ -31,7 +31,7 @@ public class Vector {
                 System.out.println(line);
                 System.out.println("     Here are the tasks in your list:");
                 for (int i = 0; i < taskCount; i++) {
-                    System.out.println("     " + (i + 1) + ".[" + tasks[i].getStatusIcon() + "] " + tasks[i].getDescription());
+                    System.out.println("     " + (i + 1) + "." + tasks[i].toString());
                 }
                 System.out.println(line);
             } else if (input.startsWith("mark ")) {
@@ -40,7 +40,7 @@ public class Vector {
                 tasks[taskIndex].markAsDone();
                 System.out.println(line);
                 System.out.println("     Nice! I've marked this task as done:");
-                System.out.println("       [" + tasks[taskIndex].getStatusIcon() + "] " + tasks[taskIndex].getDescription());
+                System.out.println("       " + tasks[taskIndex].toString());
                 System.out.println(line);
             } else if (input.startsWith("unmark ")) {
                 // Unmark a specific task
@@ -48,10 +48,39 @@ public class Vector {
                 tasks[taskIndex].unmarkAsDone();
                 System.out.println(line);
                 System.out.println("     OK, I've marked this task as not done yet:");
-                System.out.println("       [" + tasks[taskIndex].getStatusIcon() + "] " + tasks[taskIndex].getDescription());
+                System.out.println("       " + tasks[taskIndex].toString());
+                System.out.println(line);
+            } else if (input.startsWith("todo ")) {
+                String description = input.substring(5);
+                tasks[taskCount] = new Todo(description);
+                taskCount++;
+                System.out.println(line);
+                System.out.println("     Got it. I've added this task:");
+                System.out.println("       " + tasks[taskCount - 1].toString());
+                System.out.println("     Now you have " + taskCount + " tasks in the list.");
+                System.out.println(line);
+            } else if (input.startsWith("deadline ")) {
+                String[] parts = input.substring(9).split(" /by ");
+                tasks[taskCount] = new Deadline(parts[0], parts[1]);
+                taskCount++;
+                System.out.println(line);
+                System.out.println("     Got it. I've added this task:");
+                System.out.println("       " + tasks[taskCount - 1].toString());
+                System.out.println("     Now you have " + taskCount + " tasks in the list.");
+                System.out.println(line);
+            } else if (input.startsWith("event ")) {
+                String[] parts = input.substring(6).split(" /from ");
+                String description = parts[0];
+                String[] timeParts = parts[1].split(" /to ");
+                tasks[taskCount] = new Event(description, timeParts[0], timeParts[1]);
+                taskCount++;
+                System.out.println(line);
+                System.out.println("     Got it. I've added this task:");
+                System.out.println("       " + tasks[taskCount - 1].toString());
+                System.out.println("     Now you have " + taskCount + " tasks in the list.");
                 System.out.println(line);
             } else {
-                // Add the new task to the arrays
+                // Add the new generic task to the array
                 tasks[taskCount] = new Task(input);
                 taskCount++;
                 
