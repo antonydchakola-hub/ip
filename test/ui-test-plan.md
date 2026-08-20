@@ -93,7 +93,7 @@ bye
      Now you have 1 tasks in the list.
     ____________________________________________________________
     ____________________________________________________________
-     OOPS!!! I don't recognize that command. Valid commands are: todo, deadline, event, list, mark, unmark, bye.
+     OOPS!!! I don't recognize that command. Valid commands are: todo, deadline, event, list, mark, unmark, delete, bye.
     ____________________________________________________________
     ____________________________________________________________
      Here are the tasks in your list:
@@ -450,6 +450,53 @@ bye
     ____________________________________________________________
      Here are the tasks in your list:
      1.[E][ ] team meeting (from: Monday to: Tuesday)
+    ____________________________________________________________
+    ____________________________________________________________
+     Bye. Hope to see you again soon!
+    ____________________________________________________________
+```
+
+## Test case 13: Delete a task
+- Aim: Verify that a task can be deleted successfully and the count updates correctly.
+
+### Inputs
+```text
+todo read book
+todo return book
+delete 2
+list
+bye
+```
+
+### Expected output
+```text
+    ____________________________________________________________
+ __     _______ ____ _____ ___  ____
+ \ \   / / ____/ ___|_   _/  _ \|  _ \
+  \ \ / /|  _| | |     | || | | | |_) |
+   \ V / | |___| |___  | || |_| |  _ <
+    \_/  |______\____| |_| \___/|_| \_\
+     Hello! I'm Vector
+     What can I do for you?
+    ____________________________________________________________
+    ____________________________________________________________
+     Got it. I've added this task:
+       [T][ ] read book
+     Now you have 1 tasks in the list.
+    ____________________________________________________________
+    ____________________________________________________________
+     Got it. I've added this task:
+       [T][ ] return book
+     Now you have 2 tasks in the list.
+    ____________________________________________________________
+    ____________________________________________________________
+     Noted. I've removed this task:
+       [T][ ] return book
+     Now you have 1 tasks in the list.
+    ____________________________________________________________
+    ____________________________________________________________
+     Here are the tasks in your list:
+     1.[T][ ] read book
     ____________________________________________________________
     ____________________________________________________________
      Bye. Hope to see you again soon!
