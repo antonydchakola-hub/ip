@@ -16,6 +16,10 @@ public class Vector {
         System.out.println(line);
 
         Scanner scanner = new Scanner(System.in);
+        // Array to store up to 100 tasks entered by the user
+        String[] tasks = new String[100];
+        int taskCount = 0;
+
         while (true) {
             String input = scanner.nextLine();
             if (input.equals("bye")) {
@@ -23,9 +27,20 @@ public class Vector {
                 System.out.println("     Bye. Hope to see you again soon!");
                 System.out.println(line);
                 break;
-            } else {
+            } else if (input.equals("list")) {
+                // Display all accumulated tasks
                 System.out.println(line);
-                System.out.println("     " + input);
+                for (int i = 0; i < taskCount; i++) {
+                    System.out.println("     " + (i + 1) + ". " + tasks[i]);
+                }
+                System.out.println(line);
+            } else {
+                // Add the new task to the array
+                tasks[taskCount] = input;
+                taskCount++;
+                
+                System.out.println(line);
+                System.out.println("     added: " + input);
                 System.out.println(line);
             }
         }
