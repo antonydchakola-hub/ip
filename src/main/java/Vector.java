@@ -18,6 +18,8 @@ public class Vector {
         Scanner scanner = new Scanner(System.in);
         // Array to store up to 100 tasks entered by the user
         String[] tasks = new String[100];
+        // Parallel array to keep track of task completion status
+        boolean[] isDone = new boolean[100];
         int taskCount = 0;
 
         while (true) {
@@ -28,15 +30,34 @@ public class Vector {
                 System.out.println(line);
                 break;
             } else if (input.equals("list")) {
-                // Display all accumulated tasks
+                // Display all accumulated tasks with their completion status
                 System.out.println(line);
+                System.out.println("     Here are the tasks in your list:");
                 for (int i = 0; i < taskCount; i++) {
-                    System.out.println("     " + (i + 1) + ". " + tasks[i]);
+                    String statusIcon = isDone[i] ? "[X]" : "[ ]";
+                    System.out.println("     " + (i + 1) + "." + statusIcon + " " + tasks[i]);
                 }
                 System.out.println(line);
+            } else if (input.startsWith("mark ")) {
+                // Mark a specific task as done
+                int taskIndex = Integer.parseInt(input.substring(5)) - 1;
+                isDone[taskIndex] = true;
+                System.out.println(line);
+                System.out.println("     Nice! I've marked this task as done:");
+                System.out.println("       [X] " + tasks[taskIndex]);
+                System.out.println(line);
+            } else if (input.startsWith("unmark ")) {
+                // Unmark a specific task
+                int taskIndex = Integer.parseInt(input.substring(7)) - 1;
+                isDone[taskIndex] = false;
+                System.out.println(line);
+                System.out.println("     OK, I've marked this task as not done yet:");
+                System.out.println("       [ ] " + tasks[taskIndex]);
+                System.out.println(line);
             } else {
-                // Add the new task to the array
+                // Add the new task to the arrays
                 tasks[taskCount] = input;
+                isDone[taskCount] = false;
                 taskCount++;
                 
                 System.out.println(line);
