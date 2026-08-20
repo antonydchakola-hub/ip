@@ -16,12 +16,11 @@ public class Vector {
         System.out.println(line);
 
         Scanner scanner = new Scanner(System.in);
-        // Array to store up to 100 tasks entered by the user
+        // Array to store up to 100 tasks entered by the user.
         String[] tasks = new String[100];
         // Parallel array to keep track of task completion status
         boolean[] isDone = new boolean[100];
         int taskCount = 0;
-
         while (true) {
             String input = scanner.nextLine();
             if (input.equals("bye")) {
