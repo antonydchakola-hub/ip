@@ -3,6 +3,13 @@ import java.util.ArrayList;
 
 public class Vector {
     public static void main(String[] args) {
+        if (args.length > 0 && args[0].equals("--clear-data")) {
+            java.io.File file = new java.io.File("./data/vector.txt");
+            if (file.exists()) {
+                file.delete();
+            }
+        }
+        
         String banner = " __     _______ ____ _____ ___  ____\n"
                 + " \\ \\   / / ____/ ___|_   _/  _ \\|  _ \\\n"
                 + "  \\ \\ / /|  _| | |     | || | | | |_) |\n"
@@ -18,7 +25,7 @@ public class Vector {
 
         Scanner scanner = new Scanner(System.in);
         // ArrayList to store tasks dynamically
-        ArrayList<Task> tasks = new ArrayList<>();
+        ArrayList<Task> tasks = loadTasks();
         
         boolean isRunning = true;
         while (isRunning) {
@@ -59,6 +66,7 @@ public class Vector {
                         System.out.println("       " + removedTask.toString());
                         System.out.println("     Now you have " + tasks.size() + " tasks in the list.");
                         System.out.println(line);
+                        saveTasks(tasks);
                         break;
                     case MARK:
                         if (inputParts.length < 2 || inputParts[1].trim().isEmpty()) {
@@ -70,6 +78,7 @@ public class Vector {
                         System.out.println("     Nice! I've marked this task as done:");
                         System.out.println("       " + tasks.get(markIndex).toString());
                         System.out.println(line);
+                        saveTasks(tasks);
                         break;
                     case UNMARK:
                         if (inputParts.length < 2 || inputParts[1].trim().isEmpty()) {
@@ -81,6 +90,7 @@ public class Vector {
                         System.out.println("     OK, I've marked this task as not done yet:");
                         System.out.println("       " + tasks.get(unmarkIndex).toString());
                         System.out.println(line);
+                        saveTasks(tasks);
                         break;
                     case TODO:
                         if (inputParts.length < 2 || inputParts[1].trim().isEmpty()) {
@@ -92,6 +102,7 @@ public class Vector {
                         System.out.println("       " + tasks.get(tasks.size() - 1).toString());
                         System.out.println("     Now you have " + tasks.size() + " tasks in the list.");
                         System.out.println(line);
+                        saveTasks(tasks);
                         break;
                     case DEADLINE:
                         if (inputParts.length < 2 || inputParts[1].trim().isEmpty()) {
@@ -107,6 +118,7 @@ public class Vector {
                         System.out.println("       " + tasks.get(tasks.size() - 1).toString());
                         System.out.println("     Now you have " + tasks.size() + " tasks in the list.");
                         System.out.println(line);
+                        saveTasks(tasks);
                         break;
                     case EVENT:
                         if (inputParts.length < 2 || inputParts[1].trim().isEmpty()) {
@@ -127,6 +139,7 @@ public class Vector {
                         System.out.println("       " + tasks.get(tasks.size() - 1).toString());
                         System.out.println("     Now you have " + tasks.size() + " tasks in the list.");
                         System.out.println(line);
+                        saveTasks(tasks);
                         break;
                     case UNKNOWN:
                     default:
@@ -147,5 +160,60 @@ public class Vector {
             }
         }
         scanner.close();
+    }
+
+    private static void saveTasks(ArrayList<Task> tasks) {
+        try {
+            java.io.File dir = new java.io.File("./data");
+            if (!dir.exists()) {
+                dir.mkdirs();
+            }
+            java.io.FileWriter fw = new java.io.FileWriter("./data/vector.txt");
+            for (Task task : tasks) {
+                fw.write(task.toFileFormat() + "\n");
+            }
+            fw.close();
+        } catch (java.io.IOException e) {
+            System.out.println("Something went wrong saving tasks: " + e.getMessage());
+        }
+    }
+
+    private static ArrayList<Task> loadTasks() {
+        ArrayList<Task> tasks = new ArrayList<>();
+        java.io.File file = new java.io.File("./data/vector.txt");
+        if (!file.exists()) {
+            return tasks;
+        }
+        try {
+            java.util.Scanner sc = new java.util.Scanner(file);
+            while (sc.hasNextLine()) {
+                String line = sc.nextLine();
+                String[] parts = line.split(" \\| ");
+                if (parts.length < 3) continue;
+                String type = parts[0];
+                boolean isDone = parts[1].equals("1");
+                String desc = parts[2];
+                
+                Task task = null;
+                if (type.equals("T")) {
+                    task = new Todo(desc);
+                } else if (type.equals("D") && parts.length >= 4) {
+                    task = new Deadline(desc, parts[3]);
+                } else if (type.equals("E") && parts.length >= 5) {
+                    task = new Event(desc, parts[3], parts[4]);
+                }
+                
+                if (task != null) {
+                    if (isDone) {
+                        task.markAsDone();
+                    }
+                    tasks.add(task);
+                }
+            }
+            sc.close();
+        } catch (java.io.FileNotFoundException e) {
+            System.out.println("Data file not found.");
+        }
+        return tasks;
     }
 }
