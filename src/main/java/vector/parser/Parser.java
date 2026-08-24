@@ -1,3 +1,12 @@
+package vector.parser;
+
+import vector.VectorException;
+import vector.task.*;
+import vector.ui.*;
+import vector.storage.*;
+import vector.parser.*;
+import vector.command.*;
+
 public class Parser {
     public static Command parse(String fullCommand) throws VectorException {
         String[] parts = fullCommand.split(" ", 2);

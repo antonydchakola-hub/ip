@@ -1,4 +1,12 @@
+package vector.task;
+
 import java.util.ArrayList;
+import vector.VectorException;
+import vector.task.*;
+import vector.ui.*;
+import vector.storage.*;
+import vector.parser.*;
+import vector.command.*;
 
 public class TaskList {
     private ArrayList<Task> tasks;
