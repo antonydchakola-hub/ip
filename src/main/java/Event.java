@@ -1,10 +1,13 @@
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+
 /**
  * Represents an Event task.
  */
 public class Event extends Task {
     
-    protected String from;
-    protected String to;
+    protected LocalDateTime fromTime;
+    protected LocalDateTime toTime;
 
     /**
      * Constructs an Event task.
@@ -12,20 +15,28 @@ public class Event extends Task {
      * @param description The description of the event.
      * @param from The start date/time of the event.
      * @param to The end date/time of the event.
+     * @throws VectorException if the date formats are invalid.
      */
-    public Event(String description, String from, String to) {
+    public Event(String description, String from, String to) throws VectorException {
         super(description);
-        this.from = from;
-        this.to = to;
+        this.fromTime = DateTimeParser.parse(from);
+        this.toTime = DateTimeParser.parse(to);
+    }
+
+    @Override
+    public boolean occursOn(LocalDate date) {
+        LocalDate startDate = fromTime.toLocalDate();
+        LocalDate endDate = toTime.toLocalDate();
+        return !date.isBefore(startDate) && !date.isAfter(endDate);
     }
 
     @Override
     public String toString() {
-        return "[E]" + super.toString() + " (from: " + from + " to: " + to + ")";
+        return "[E]" + super.toString() + " (from: " + DateTimeParser.format(fromTime) + " to: " + DateTimeParser.format(toTime) + ")";
     }
 
     @Override
     public String toFileFormat() {
-        return "E" + super.toFileFormat() + " | " + from + " | " + to;
+        return "E" + super.toFileFormat() + " | " + DateTimeParser.formatForFile(fromTime) + " | " + DateTimeParser.formatForFile(toTime);
     }
 }

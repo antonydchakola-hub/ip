@@ -144,9 +144,28 @@ public class Vector {
                         System.out.println(line);
                         saveTasks(tasks);
                         break;
+                    case SCHEDULE:
+                        if (inputParts.length < 2 || inputParts[1].trim().isEmpty()) {
+                            throw new VectorException("Please specify a date to check the schedule. For example: schedule 2019-12-02");
+                        }
+                        java.time.LocalDate searchDate = DateTimeParser.parseDate(inputParts[1].trim());
+                        System.out.println(line);
+                        System.out.println("     Here are the tasks occurring on " + searchDate + ":");
+                        int matchCount = 1;
+                        for (Task t : tasks) {
+                            if (t.occursOn(searchDate)) {
+                                System.out.println("     " + matchCount + "." + t.toString());
+                                matchCount++;
+                            }
+                        }
+                        if (matchCount == 1) {
+                            System.out.println("     (No tasks found)");
+                        }
+                        System.out.println(line);
+                        break;
                     case UNKNOWN:
                     default:
-                        throw new VectorException("I don't recognize that command. Valid commands are: todo, deadline, event, list, mark, unmark, delete, bye.");
+                        throw new VectorException("I don't recognize that command. Valid commands are: todo, deadline, event, list, mark, unmark, delete, schedule, bye.");
                 }
             } catch (VectorException e) {
                 System.out.println(line);
