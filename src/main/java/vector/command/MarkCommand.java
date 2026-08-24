@@ -1,15 +1,24 @@
-public class UnmarkCommand extends Command {
+package vector.command;
+
+import vector.VectorException;
+import vector.task.*;
+import vector.ui.*;
+import vector.storage.*;
+import vector.parser.*;
+import vector.command.*;
+
+public class MarkCommand extends Command {
     private int index;
     
-    public UnmarkCommand(int index) {
+    public MarkCommand(int index) {
         this.index = index;
     }
     
     @Override
     public void execute(TaskList tasks, Ui ui, Storage storage) {
         try {
-            tasks.get(index).unmarkAsDone();
-            ui.showMessage("OK, I've marked this task as not done yet:");
+            tasks.get(index).markAsDone();
+            ui.showMessage("Nice! I've marked this task as done:");
             ui.showMessage("  " + tasks.get(index).toString());
             storage.save(tasks.getTasks());
         } catch (IndexOutOfBoundsException e) {

@@ -1,7 +1,7 @@
 # Vector Text UI Test Plan
 
-- Setup command: `javac -d _temp/ui-test-classes src/main/java/*.java`
-- Program command: `java -cp _temp/ui-test-classes Vector --clear-data`
+- Setup command: `javac -d _temp/ui-test-classes src/main/java/vector/*.java src/main/java/vector/ui/*.java src/main/java/vector/storage/*.java src/main/java/vector/task/*.java src/main/java/vector/parser/*.java src/main/java/vector/command/*.java`
+- Program command: `java -cp _temp/ui-test-classes vector.Vector --clear-data`
 - Timeout seconds: `10`
 
 The runner starts a fresh Vector process for each case. Output is compared

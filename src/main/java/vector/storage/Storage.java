@@ -1,4 +1,12 @@
+package vector.storage;
+
 import java.util.ArrayList;
+import vector.VectorException;
+import vector.task.*;
+import vector.ui.*;
+import vector.storage.*;
+import vector.parser.*;
+import vector.command.*;
 
 /**
  * Handles loading tasks from and saving tasks to the data file.

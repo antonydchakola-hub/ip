@@ -1,3 +1,12 @@
+package vector;
+
+import vector.VectorException;
+import vector.task.*;
+import vector.ui.*;
+import vector.storage.*;
+import vector.parser.*;
+import vector.command.*;
+
 public class Vector {
     private Storage storage;
     private TaskList tasks;

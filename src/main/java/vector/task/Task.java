@@ -1,4 +1,12 @@
+package vector.task;
+
 import java.time.LocalDate;
+import vector.VectorException;
+import vector.task.*;
+import vector.ui.*;
+import vector.storage.*;
+import vector.parser.*;
+import vector.command.*;
 
 /**
  * Represents a task with a description and a completion status.

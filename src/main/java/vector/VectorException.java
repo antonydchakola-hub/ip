@@ -1,3 +1,5 @@
+package vector;
+
 /**
  * Represents an exception specific to the Vector application.
  */
