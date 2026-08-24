@@ -28,16 +28,19 @@ public class Vector {
         ArrayList<Task> tasks = loadTasks();
         
         boolean isRunning = true;
-        while (isRunning) {
+        while (isRunning && scanner.hasNextLine()) {
             String input = scanner.nextLine();
+            if (input.trim().isEmpty()) {
+                continue;
+            }
             try {
                 String[] inputParts = input.split(" ", 2);
-                Command command = Command.fromString(inputParts[0]);
+                Command command = Command.fromString(inputParts[0].trim());
 
                 switch (command) {
                     case BYE:
-                        if (!input.equals("bye")) {
-                            throw new VectorException("I don't recognize that command. Valid commands are: todo, deadline, event, list, mark, unmark, delete, bye.");
+                        if (inputParts.length > 1 && !inputParts[1].trim().isEmpty()) {
+                            throw new VectorException("The bye command does not take any arguments.");
                         }
                         System.out.println(line);
                         System.out.println("     Bye. Hope to see you again soon!");
@@ -45,8 +48,8 @@ public class Vector {
                         isRunning = false;
                         break;
                     case LIST:
-                        if (!input.equals("list")) {
-                            throw new VectorException("I don't recognize that command. Valid commands are: todo, deadline, event, list, mark, unmark, delete, bye.");
+                        if (inputParts.length > 1 && !inputParts[1].trim().isEmpty()) {
+                            throw new VectorException("The list command does not take any arguments.");
                         }
                         System.out.println(line);
                         System.out.println("     Here are the tasks in your list:");
@@ -187,27 +190,31 @@ public class Vector {
         try {
             java.util.Scanner sc = new java.util.Scanner(file);
             while (sc.hasNextLine()) {
-                String line = sc.nextLine();
-                String[] parts = line.split(" \\| ");
-                if (parts.length < 3) continue;
-                String type = parts[0];
-                boolean isDone = parts[1].equals("1");
-                String desc = parts[2];
-                
-                Task task = null;
-                if (type.equals("T")) {
-                    task = new Todo(desc);
-                } else if (type.equals("D") && parts.length >= 4) {
-                    task = new Deadline(desc, parts[3]);
-                } else if (type.equals("E") && parts.length >= 5) {
-                    task = new Event(desc, parts[3], parts[4]);
-                }
-                
-                if (task != null) {
-                    if (isDone) {
-                        task.markAsDone();
+                try {
+                    String line = sc.nextLine();
+                    String[] parts = line.split(" \\| ");
+                    if (parts.length < 3) continue;
+                    String type = parts[0];
+                    boolean isDone = parts[1].equals("1");
+                    String desc = parts[2];
+                    
+                    Task task = null;
+                    if (type.equals("T")) {
+                        task = new Todo(desc);
+                    } else if (type.equals("D") && parts.length >= 4) {
+                        task = new Deadline(desc, parts[3]);
+                    } else if (type.equals("E") && parts.length >= 5) {
+                        task = new Event(desc, parts[3], parts[4]);
                     }
-                    tasks.add(task);
+                    
+                    if (task != null) {
+                        if (isDone) {
+                            task.markAsDone();
+                        }
+                        tasks.add(task);
+                    }
+                } catch (Exception e) {
+                    System.out.println("Skipping corrupted data line: " + e.getMessage());
                 }
             }
             sc.close();

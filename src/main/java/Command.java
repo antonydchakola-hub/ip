@@ -27,7 +27,7 @@ public enum Command {
      */
     public static Command fromString(String text) {
         for (Command c : Command.values()) {
-            if (c.commandString.equals(text)) {
+            if (c.commandString.equalsIgnoreCase(text)) {
                 return c;
             }
         }

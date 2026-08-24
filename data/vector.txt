@@ -1,2 +1,2 @@
 T | 0 | read book
-T | 0 | borrow book
+T | 1 | borrow book
