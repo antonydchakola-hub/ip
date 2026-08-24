@@ -56,4 +56,13 @@ public class Task {
     public String toString() {
         return "[" + this.getStatusIcon() + "] " + this.description;
     }
+
+    /**
+     * Returns the string representation of the task for file storage.
+     * 
+     * @return A string formatted for file storage.
+     */
+    public String toFileFormat() {
+        return " | " + (isDone ? "1" : "0") + " | " + description;
+    }
 }
