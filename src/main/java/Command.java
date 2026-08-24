@@ -10,6 +10,7 @@ public enum Command {
     TODO("todo"),
     DEADLINE("deadline"),
     EVENT("event"),
+    SCHEDULE("schedule"),
     UNKNOWN("");
 
     private final String commandString;

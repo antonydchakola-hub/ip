@@ -1,6 +1,6 @@
 # Vector Text UI Test Plan
 
-- Setup command: `javac -d _temp/ui-test-classes src/main/java/Task.java src/main/java/Todo.java src/main/java/Deadline.java src/main/java/Event.java src/main/java/VectorException.java src/main/java/Command.java src/main/java/Vector.java`
+- Setup command: `javac -d _temp/ui-test-classes src/main/java/Task.java src/main/java/Todo.java src/main/java/Deadline.java src/main/java/Event.java src/main/java/VectorException.java src/main/java/Command.java src/main/java/DateTimeParser.java src/main/java/Vector.java`
 - Program command: `java -cp _temp/ui-test-classes Vector --clear-data`
 - Timeout seconds: `10`
 
@@ -93,7 +93,7 @@ bye
      Now you have 1 tasks in the list.
     ____________________________________________________________
     ____________________________________________________________
-     OOPS!!! I don't recognize that command. Valid commands are: todo, deadline, event, list, mark, unmark, delete, bye.
+     OOPS!!! I don't recognize that command. Valid commands are: todo, deadline, event, list, mark, unmark, delete, schedule, bye.
     ____________________________________________________________
     ____________________________________________________________
      Here are the tasks in your list:
@@ -313,7 +313,7 @@ bye
 
 ### Inputs
 ```text
-deadline submit report /by Friday
+deadline submit report /by 2019-10-15 1800
 list
 bye
 ```
@@ -331,12 +331,12 @@ bye
     ____________________________________________________________
     ____________________________________________________________
      Got it. I've added this task:
-       [D][ ] submit report (by: Friday)
+       [D][ ] submit report (by: Oct 15 2019, 6:00 pm)
      Now you have 1 tasks in the list.
     ____________________________________________________________
     ____________________________________________________________
      Here are the tasks in your list:
-     1.[D][ ] submit report (by: Friday)
+     1.[D][ ] submit report (by: Oct 15 2019, 6:00 pm)
     ____________________________________________________________
     ____________________________________________________________
      Bye. Hope to see you again soon!
@@ -348,7 +348,7 @@ bye
 
 ### Inputs
 ```text
-deadline submit report /by Friday
+deadline submit report /by 2019-10-15 1800
 deadline invalid
 list
 bye
@@ -367,7 +367,7 @@ bye
     ____________________________________________________________
     ____________________________________________________________
      Got it. I've added this task:
-       [D][ ] submit report (by: Friday)
+       [D][ ] submit report (by: Oct 15 2019, 6:00 pm)
      Now you have 1 tasks in the list.
     ____________________________________________________________
     ____________________________________________________________
@@ -375,7 +375,7 @@ bye
     ____________________________________________________________
     ____________________________________________________________
      Here are the tasks in your list:
-     1.[D][ ] submit report (by: Friday)
+     1.[D][ ] submit report (by: Oct 15 2019, 6:00 pm)
     ____________________________________________________________
     ____________________________________________________________
      Bye. Hope to see you again soon!
@@ -387,7 +387,7 @@ bye
 
 ### Inputs
 ```text
-event team meeting /from Monday /to Tuesday
+event team meeting /from 2019-10-14 /to 2019-10-15 1800
 list
 bye
 ```
@@ -405,12 +405,12 @@ bye
     ____________________________________________________________
     ____________________________________________________________
      Got it. I've added this task:
-       [E][ ] team meeting (from: Monday to: Tuesday)
+       [E][ ] team meeting (from: Oct 14 2019, 12:00 am to: Oct 15 2019, 6:00 pm)
      Now you have 1 tasks in the list.
     ____________________________________________________________
     ____________________________________________________________
      Here are the tasks in your list:
-     1.[E][ ] team meeting (from: Monday to: Tuesday)
+     1.[E][ ] team meeting (from: Oct 14 2019, 12:00 am to: Oct 15 2019, 6:00 pm)
     ____________________________________________________________
     ____________________________________________________________
      Bye. Hope to see you again soon!
@@ -422,8 +422,8 @@ bye
 
 ### Inputs
 ```text
-event team meeting /from Monday /to Tuesday
-event planning /from Monday
+event team meeting /from 2019-10-14 /to 2019-10-15 1800
+event planning /from 2019-10-14
 list
 bye
 ```
@@ -441,7 +441,7 @@ bye
     ____________________________________________________________
     ____________________________________________________________
      Got it. I've added this task:
-       [E][ ] team meeting (from: Monday to: Tuesday)
+       [E][ ] team meeting (from: Oct 14 2019, 12:00 am to: Oct 15 2019, 6:00 pm)
      Now you have 1 tasks in the list.
     ____________________________________________________________
     ____________________________________________________________
@@ -449,7 +449,7 @@ bye
     ____________________________________________________________
     ____________________________________________________________
      Here are the tasks in your list:
-     1.[E][ ] team meeting (from: Monday to: Tuesday)
+     1.[E][ ] team meeting (from: Oct 14 2019, 12:00 am to: Oct 15 2019, 6:00 pm)
     ____________________________________________________________
     ____________________________________________________________
      Bye. Hope to see you again soon!
@@ -497,6 +497,48 @@ bye
     ____________________________________________________________
      Here are the tasks in your list:
      1.[T][ ] read book
+    ____________________________________________________________
+    ____________________________________________________________
+     Bye. Hope to see you again soon!
+    ____________________________________________________________
+```
+
+## Test case 14: Schedule command
+- Aim: Verify that schedule finds tasks occurring on a specific date.
+
+### Inputs
+```text
+deadline assignment /by 2019-12-02 2359
+event conference /from 2019-12-01 /to 2019-12-03
+schedule 2019-12-02
+bye
+```
+
+### Expected output
+```text
+    ____________________________________________________________
+ __     _______ ____ _____ ___  ____
+ \ \   / / ____/ ___|_   _/  _ \|  _ \
+  \ \ / /|  _| | |     | || | | | |_) |
+   \ V / | |___| |___  | || |_| |  _ <
+    \_/  |______\____| |_| \___/|_| \_\
+     Hello! I'm Vector
+     What can I do for you?
+    ____________________________________________________________
+    ____________________________________________________________
+     Got it. I've added this task:
+       [D][ ] assignment (by: Dec 2 2019, 11:59 pm)
+     Now you have 1 tasks in the list.
+    ____________________________________________________________
+    ____________________________________________________________
+     Got it. I've added this task:
+       [E][ ] conference (from: Dec 1 2019, 12:00 am to: Dec 3 2019, 12:00 am)
+     Now you have 2 tasks in the list.
+    ____________________________________________________________
+    ____________________________________________________________
+     Here are the tasks occurring on 2019-12-02:
+     1.[D][ ] assignment (by: Dec 2 2019, 11:59 pm)
+     2.[E][ ] conference (from: Dec 1 2019, 12:00 am to: Dec 3 2019, 12:00 am)
     ____________________________________________________________
     ____________________________________________________________
      Bye. Hope to see you again soon!

@@ -1,3 +1,5 @@
+import java.time.LocalDate;
+
 /**
  * Represents a task with a description and a completion status.
  */
@@ -64,5 +66,16 @@ public class Task {
      */
     public String toFileFormat() {
         return " | " + (isDone ? "1" : "0") + " | " + description;
+    }
+
+    /**
+     * Checks if the task occurs on a specific date.
+     * By default, a task does not occur on any specific date unless overridden.
+     * 
+     * @param date The date to check against.
+     * @return true if it occurs on the date, false otherwise.
+     */
+    public boolean occursOn(LocalDate date) {
+        return false;
     }
 }
