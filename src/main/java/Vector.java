@@ -13,25 +13,22 @@ public class Vector {
         ui.showWelcome();
         boolean isExit = false;
         while (!isExit) {
-            String input = ui.readCommand();
-            if (input == null) break;
-            if (input.trim().isEmpty()) continue;
+            String fullCommand = ui.readCommand();
+            if (fullCommand == null) break;
+            if (fullCommand.trim().isEmpty()) continue;
             
             try {
-                Command c = Parser.parse(input);
+                ui.showLine(); // show the divider line ("_______")
+                Command c = Parser.parse(fullCommand);
                 c.execute(tasks, ui, storage);
                 isExit = c.isExit();
             } catch (VectorException e) {
-                ui.showLine();
                 ui.showError(e.getMessage());
-                ui.showLine();
             } catch (NumberFormatException e) {
-                ui.showLine();
                 ui.showError("The task number provided is invalid.");
-                ui.showLine();
             } catch (IndexOutOfBoundsException e) {
-                ui.showLine();
                 ui.showError("That task number does not exist in your list.");
+            } finally {
                 ui.showLine();
             }
         }
