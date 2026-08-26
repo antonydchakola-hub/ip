@@ -36,6 +36,11 @@ After every update to executable code:
 2. Invoke the project-specific `$test-ui` skill from the repository root, even when the test plan did not need changes.
 3. Include the skill's console input/output transcript in the handoff. If a test case fails, stop immediately and report its actual and expected output before making further code changes.
 
+## JUnit Testing:
+
+Maintain a test coverage target of ~50%, focusing primarily on the highest-value methods (prioritizing complex, core, or critical business logic over simple getters/setters).
+After every code change, ensure that JUnit tests are updated or added to comply with this 50% target.
+
 ## Git
 
 Use lightweight tags unless the user requests an annotated tag.
