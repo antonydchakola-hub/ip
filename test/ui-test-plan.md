@@ -93,7 +93,7 @@ bye
      Now you have 1 tasks in the list.
     ____________________________________________________________
     ____________________________________________________________
-     OOPS!!! I don't recognize that command. Valid commands are: todo, deadline, event, list, mark, unmark, delete, schedule, bye.
+     OOPS!!! I don't recognize that command. Valid commands are: todo, deadline, event, list, mark, unmark, delete, schedule, find, bye.
     ____________________________________________________________
     ____________________________________________________________
      Here are the tasks in your list:
@@ -539,6 +539,64 @@ bye
      Here are the tasks occurring on 2019-12-02:
      1.[D][ ] assignment (by: Dec 2 2019, 11:59 pm)
      2.[E][ ] conference (from: Dec 1 2019, 12:00 am to: Dec 3 2019, 12:00 am)
+    ____________________________________________________________
+    ____________________________________________________________
+     Bye. Hope to see you again soon!
+    ____________________________________________________________
+```
+
+## Test case 15: Find a task
+- Aim: Verify that find matches tasks by keyword in their description.
+
+### Inputs
+```text
+todo read book
+deadline return book /by 2023-06-06 2359
+todo buy groceries
+mark 1
+mark 2
+find book
+bye
+```
+
+### Expected output
+```text
+    ____________________________________________________________
+ __     _______ ____ _____ ___  ____
+ \ \   / / ____/ ___|_   _/  _ \|  _ \
+  \ \ / /|  _| | |     | || | | | |_) |
+   \ V / | |___| |___  | || |_| |  _ <
+    \_/  |______\____| |_| \___/|_| \_\
+     Hello! I'm Vector
+     What can I do for you?
+    ____________________________________________________________
+    ____________________________________________________________
+     Got it. I've added this task:
+       [T][ ] read book
+     Now you have 1 tasks in the list.
+    ____________________________________________________________
+    ____________________________________________________________
+     Got it. I've added this task:
+       [D][ ] return book (by: Jun 6 2023, 11:59 pm)
+     Now you have 2 tasks in the list.
+    ____________________________________________________________
+    ____________________________________________________________
+     Got it. I've added this task:
+       [T][ ] buy groceries
+     Now you have 3 tasks in the list.
+    ____________________________________________________________
+    ____________________________________________________________
+     Nice! I've marked this task as done:
+       [T][X] read book
+    ____________________________________________________________
+    ____________________________________________________________
+     Nice! I've marked this task as done:
+       [D][X] return book (by: Jun 6 2023, 11:59 pm)
+    ____________________________________________________________
+    ____________________________________________________________
+     Here are the matching tasks in your list:
+     1.[T][X] read book
+     2.[D][X] return book (by: Jun 6 2023, 11:59 pm)
     ____________________________________________________________
     ____________________________________________________________
      Bye. Hope to see you again soon!

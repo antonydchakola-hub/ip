@@ -13,6 +13,7 @@ import vector.command.ListCommand;
 import vector.command.MarkCommand;
 import vector.command.ScheduleCommand;
 import vector.command.UnmarkCommand;
+import vector.command.FindCommand;
 
 /**
  * Parses user input into executable commands.
@@ -20,7 +21,7 @@ import vector.command.UnmarkCommand;
 public class Parser {
     /**
      * Parses the full user input command string and returns the corresponding Command object.
-     * 
+     *
      * @param fullCommand The full command string input by the user.
      * @return The parsed Command object to be executed.
      * @throws VectorException If the user input is invalid or improperly formatted.
@@ -96,9 +97,15 @@ public class Parser {
                 }
                 java.time.LocalDate searchDate = DateTimeParser.parseDate(parts[1].trim());
                 return new ScheduleCommand(searchDate);
+            case "find":
+                if (parts.length < 2 || parts[1].trim().isEmpty()) {
+                    throw new VectorException("Please specify a keyword to find. "
+                            + "For example: find book");
+                }
+                return new FindCommand(parts[1].trim());
             default:
                 throw new VectorException("I don't recognize that command. "
-                        + "Valid commands are: todo, deadline, event, list, mark, unmark, delete, schedule, bye.");
+                        + "Valid commands are: todo, deadline, event, list, mark, unmark, delete, schedule, find, bye.");
         }
     }
 }

@@ -1,7 +1,6 @@
 package vector.task;
 
 import java.util.ArrayList;
-import vector.VectorException;
 import vector.task.Task;
 
 /**
@@ -12,7 +11,7 @@ public class TaskList {
 
     /**
      * Constructs a TaskList with an existing list of tasks.
-     * 
+     *
      * @param tasks An ArrayList of Task objects.
      */
     public TaskList(ArrayList<Task> tasks) {
@@ -28,7 +27,7 @@ public class TaskList {
 
     /**
      * Adds a task to the list.
-     * 
+     *
      * @param task The task to add.
      */
     public void add(Task task) {
@@ -37,7 +36,7 @@ public class TaskList {
 
     /**
      * Removes a task from the list at the specified index.
-     * 
+     *
      * @param index The zero-based index of the task to remove.
      * @return The removed task.
      */
@@ -47,7 +46,7 @@ public class TaskList {
 
     /**
      * Retrieves a task from the list at the specified index.
-     * 
+     *
      * @param index The zero-based index of the task to retrieve.
      * @return The task at the given index.
      */
@@ -57,7 +56,7 @@ public class TaskList {
 
     /**
      * Gets the current number of tasks in the list.
-     * 
+     *
      * @return The size of the task list.
      */
     public int size() {
@@ -66,10 +65,26 @@ public class TaskList {
 
     /**
      * Returns the underlying ArrayList of tasks.
-     * 
+     *
      * @return The ArrayList of Task objects.
      */
     public ArrayList<Task> getTasks() {
         return tasks;
+    }
+
+    /**
+     * Finds tasks whose description contains the keyword.
+     *
+     * @param keyword The keyword to search for.
+     * @return An ArrayList of matching tasks.
+     */
+    public ArrayList<Task> findTasks(String keyword) {
+        ArrayList<Task> matchingTasks = new ArrayList<>();
+        for (Task task : tasks) {
+            if (task.getDescription().contains(keyword)) {
+                matchingTasks.add(task);
+            }
+        }
+        return matchingTasks;
     }
 }
