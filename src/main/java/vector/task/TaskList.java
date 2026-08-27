@@ -2,11 +2,7 @@ package vector.task;
 
 import java.util.ArrayList;
 import vector.VectorException;
-import vector.task.*;
-import vector.ui.*;
-import vector.storage.*;
-import vector.parser.*;
-import vector.command.*;
+import vector.task.Task;
 
 /**
  * Represents a list of tasks and provides operations to modify or retrieve them.

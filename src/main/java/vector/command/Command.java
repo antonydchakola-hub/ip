@@ -1,11 +1,9 @@
 package vector.command;
 
 import vector.VectorException;
-import vector.task.*;
-import vector.ui.*;
-import vector.storage.*;
-import vector.parser.*;
-import vector.command.*;
+import vector.task.TaskList;
+import vector.ui.Ui;
+import vector.storage.Storage;
 
 /**
  * Represents an executable command in the Vector application.

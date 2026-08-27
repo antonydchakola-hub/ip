@@ -3,11 +3,8 @@ package vector.task;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import vector.VectorException;
-import vector.task.*;
-import vector.ui.*;
-import vector.storage.*;
-import vector.parser.*;
-import vector.command.*;
+import vector.task.Task;
+import vector.parser.DateTimeParser;
 
 /**
  * Represents an Event task.
@@ -40,11 +37,13 @@ public class Event extends Task {
 
     @Override
     public String toString() {
-        return "[E]" + super.toString() + " (from: " + DateTimeParser.format(fromTime) + " to: " + DateTimeParser.format(toTime) + ")";
+        return "[E]" + super.toString() + " (from: " + DateTimeParser.format(fromTime) 
+                + " to: " + DateTimeParser.format(toTime) + ")";
     }
 
     @Override
     public String toFileFormat() {
-        return "E" + super.toFileFormat() + " | " + DateTimeParser.formatForFile(fromTime) + " | " + DateTimeParser.formatForFile(toTime);
+        return "E" + super.toFileFormat() + " | " + DateTimeParser.formatForFile(fromTime) 
+                + " | " + DateTimeParser.formatForFile(toTime);
     }
 }

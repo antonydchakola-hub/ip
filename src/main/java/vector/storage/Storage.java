@@ -2,11 +2,10 @@ package vector.storage;
 
 import java.util.ArrayList;
 import vector.VectorException;
-import vector.task.*;
-import vector.ui.*;
-import vector.storage.*;
-import vector.parser.*;
-import vector.command.*;
+import vector.task.Deadline;
+import vector.task.Event;
+import vector.task.Task;
+import vector.task.Todo;
 
 /**
  * Handles loading tasks from and saving tasks to the data file.
@@ -40,7 +39,9 @@ public class Storage {
                 try {
                     String line = sc.nextLine();
                     String[] parts = line.split(" \\| ");
-                    if (parts.length < 3) continue;
+                    if (parts.length < 3) {
+                        continue;
+                    }
                     String type = parts[0];
                     boolean isDone = parts[1].equals("1");
                     String desc = parts[2];

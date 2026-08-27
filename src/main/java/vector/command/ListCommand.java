@@ -1,11 +1,10 @@
 package vector.command;
 
 import vector.VectorException;
-import vector.task.*;
-import vector.ui.*;
-import vector.storage.*;
-import vector.parser.*;
-import vector.command.*;
+import vector.task.TaskList;
+import vector.ui.Ui;
+import vector.storage.Storage;
+import vector.command.Command;
 
 /**
  * Represents a command to list all tasks in the task list.

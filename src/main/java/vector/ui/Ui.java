@@ -2,11 +2,6 @@ package vector.ui;
 
 import java.util.Scanner;
 import vector.VectorException;
-import vector.task.*;
-import vector.ui.*;
-import vector.storage.*;
-import vector.parser.*;
-import vector.command.*;
 
 /**
  * Handles interactions with the user, including reading input and displaying messages.
