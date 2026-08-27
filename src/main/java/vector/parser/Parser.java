@@ -7,7 +7,17 @@ import vector.storage.*;
 import vector.parser.*;
 import vector.command.*;
 
+/**
+ * Parses user input into executable commands.
+ */
 public class Parser {
+    /**
+     * Parses the full user input command string and returns the corresponding Command object.
+     * 
+     * @param fullCommand The full command string input by the user.
+     * @return The parsed Command object to be executed.
+     * @throws VectorException If the user input is invalid or improperly formatted.
+     */
     public static Command parse(String fullCommand) throws VectorException {
         String[] parts = fullCommand.split(" ", 2);
         String action = parts[0].trim().toLowerCase();
