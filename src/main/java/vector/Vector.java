@@ -7,17 +7,29 @@ import vector.storage.*;
 import vector.parser.*;
 import vector.command.*;
 
+/**
+ * The main entry point for the Vector application.
+ * Initializes the UI, Storage, and TaskList, and starts the main application loop.
+ */
 public class Vector {
     private Storage storage;
     private TaskList tasks;
     private Ui ui;
 
+    /**
+     * Constructs a Vector application instance.
+     * 
+     * @param filePath The path to the data file where tasks are saved.
+     */
     public Vector(String filePath) {
         ui = new Ui();
         storage = new Storage(filePath);
         tasks = new TaskList(storage.load());
     }
 
+    /**
+     * Runs the main loop of the Vector application, continuously reading and executing user commands.
+     */
     public void run() {
         ui.showWelcome();
         boolean isExit = false;
@@ -43,6 +55,11 @@ public class Vector {
         }
     }
 
+    /**
+     * Main method to start the Vector application.
+     * 
+     * @param args Command-line arguments. Accepts "--clear-data" to clear existing task data.
+     */
     public static void main(String[] args) {
         if (args.length > 0 && args[0].equals("--clear-data")) {
             java.io.File file = new java.io.File("./data/vector.txt");

@@ -7,7 +7,17 @@ import vector.storage.*;
 import vector.parser.*;
 import vector.command.*;
 
+/**
+ * Represents a command to list all tasks in the task list.
+ */
 public class ListCommand extends Command {
+    /**
+     * Executes the command, displaying all tasks currently in the list.
+     * 
+     * @param tasks   The task list to operate on.
+     * @param ui      The user interface for displaying messages.
+     * @param storage The storage for saving updates.
+     */
     @Override
     public void execute(TaskList tasks, Ui ui, Storage storage) {
         ui.showMessage("Here are the tasks in your list:");
