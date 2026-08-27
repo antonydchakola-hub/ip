@@ -14,6 +14,7 @@ import vector.command.AddCommand;
 import vector.command.MarkCommand;
 import vector.command.UnmarkCommand;
 import vector.command.ScheduleCommand;
+import vector.command.FindCommand;
 import vector.task.Deadline;
 import vector.task.Event;
 
@@ -65,7 +66,8 @@ public class ParserTest {
         VectorException thrown = assertThrows(VectorException.class, () -> {
             Parser.parse("hello");
         });
-        assertEquals("I don't recognize that command. Valid commands are: todo, deadline, event, list, mark, unmark, delete, schedule, bye.", thrown.getMessage());
+        assertEquals("I don't recognize that command. "
+                + "Valid commands are: todo, deadline, event, list, mark, unmark, delete, schedule, find, bye.", thrown.getMessage());
     }
 
     @Test
@@ -112,5 +114,19 @@ public class ParserTest {
     public void parse_scheduleCommandValidFormat_returnsScheduleCommand() throws VectorException {
         Command command = Parser.parse("schedule 2023-12-01");
         assertTrue(command instanceof ScheduleCommand);
+    }
+
+    @Test
+    public void parse_findCommandValidKeyword_returnsFindCommand() throws VectorException {
+        Command command = Parser.parse("find book");
+        assertTrue(command instanceof FindCommand);
+    }
+
+    @Test
+    public void parse_findCommandMissingKeyword_throwsVectorException() {
+        VectorException thrown = assertThrows(VectorException.class, () -> {
+            Parser.parse("find");
+        });
+        assertEquals("Please specify a keyword to find. For example: find book", thrown.getMessage());
     }
 }
