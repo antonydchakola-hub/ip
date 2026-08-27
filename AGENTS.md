@@ -46,3 +46,9 @@ After every code change, ensure that JUnit tests are updated or added to comply 
 Use lightweight tags unless the user requests an annotated tag.
 When proposing or creating a commit message, include enough detail to explain the rationale for the change.
 Do not commit or push unless explicitly asked.
+
+All Git operations (commits, branch names) in this project must strictly follow the `seedu-git-standard` skill. Review its instructions before proposing or creating any commits.
+
+## Coding Standard
+
+All Java code written in this project must strictly follow the `seedu-java-coding-standard` skill. Review its instructions before generating or modifying Java files.
