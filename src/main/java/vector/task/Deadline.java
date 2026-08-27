@@ -3,11 +3,8 @@ package vector.task;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import vector.VectorException;
-import vector.task.*;
-import vector.ui.*;
-import vector.storage.*;
-import vector.parser.*;
-import vector.command.*;
+import vector.task.Task;
+import vector.parser.DateTimeParser;
 
 /**
  * Represents a Deadline task.

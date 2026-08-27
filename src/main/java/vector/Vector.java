@@ -1,11 +1,11 @@
 package vector;
 
 import vector.VectorException;
-import vector.task.*;
-import vector.ui.*;
-import vector.storage.*;
-import vector.parser.*;
-import vector.command.*;
+import vector.task.TaskList;
+import vector.ui.Ui;
+import vector.storage.Storage;
+import vector.parser.Parser;
+import vector.command.Command;
 
 public class Vector {
     private Storage storage;
@@ -23,8 +23,12 @@ public class Vector {
         boolean isExit = false;
         while (!isExit) {
             String fullCommand = ui.readCommand();
-            if (fullCommand == null) break;
-            if (fullCommand.trim().isEmpty()) continue;
+            if (fullCommand == null) {
+                break;
+            }
+            if (fullCommand.trim().isEmpty()) {
+                continue;
+            }
             
             try {
                 ui.showLine(); // show the divider line ("_______")
