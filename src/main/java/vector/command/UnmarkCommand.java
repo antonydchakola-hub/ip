@@ -1,5 +1,6 @@
 package vector.command;
 
+import vector.VectorException;
 import vector.storage.Storage;
 import vector.task.TaskList;
 import vector.ui.Ui;
@@ -24,17 +25,17 @@ public class UnmarkCommand extends Command {
      *
      * @param tasks   The task list to operate on.
      * @param ui      The user interface for displaying messages.
-     * @param storage The storage for saving updates.
+     * @return The response string.
+     * @throws VectorException If the index is invalid.
      */
     @Override
-    public void execute(TaskList tasks, Ui ui, Storage storage) {
+    public String execute(TaskList tasks, Ui ui, Storage storage) throws VectorException {
         try {
             tasks.get(index).unmarkAsDone();
-            ui.showMessage("OK, I've marked this task as not done yet:");
-            ui.showMessage("  " + tasks.get(index).toString());
             storage.save(tasks.getTasks());
+            return "OK, I've marked this task as not done yet:\n  " + tasks.get(index).toString();
         } catch (IndexOutOfBoundsException e) {
-            ui.showError("That task number does not exist in your list.");
+            throw new VectorException("That task number does not exist in your list.");
         }
     }
 }

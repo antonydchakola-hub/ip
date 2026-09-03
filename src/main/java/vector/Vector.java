@@ -14,6 +14,7 @@ public class Vector {
     private Storage storage;
     private TaskList tasks;
     private Ui ui;
+    private String commandType = "";
 
     /**
      * Constructs a Vector application instance.
@@ -24,6 +25,36 @@ public class Vector {
         ui = new Ui();
         storage = new Storage(filePath);
         tasks = new TaskList(storage.load());
+    }
+
+    /**
+     * Generates a response for the user's chat message.
+     *
+     * @param input User input string.
+     * @return Response string.
+     */
+    public String getResponse(String input) {
+        try {
+            Command c = Parser.parse(input);
+            String response = c.execute(tasks, ui, storage);
+            commandType = c.getClass().getSimpleName();
+            return response;
+        } catch (VectorException e) {
+            commandType = "Error";
+            return "Error: " + e.getMessage();
+        } catch (NumberFormatException e) {
+            commandType = "Error";
+            return "Error: Invalid task number format.";
+        }
+    }
+
+    /**
+     * Gets the command type of the last executed command.
+     *
+     * @return The simple class name of the command.
+     */
+    public String getCommandType() {
+        return commandType;
     }
 
     /**
@@ -44,7 +75,8 @@ public class Vector {
             try {
                 ui.showLine(); // show the divider line ("_______")
                 Command c = Parser.parse(fullCommand);
-                c.execute(tasks, ui, storage);
+                String response = c.execute(tasks, ui, storage);
+                ui.showMessage(response);
                 isExit = c.isExit();
             } catch (VectorException e) {
                 ui.showError(e.getMessage());

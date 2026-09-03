@@ -26,19 +26,21 @@ public class ScheduleCommand extends Command {
      * @param tasks   The task list to operate on.
      * @param ui      The user interface for displaying messages.
      * @param storage The storage for saving updates.
+     * @return The response string.
      */
     @Override
-    public void execute(TaskList tasks, Ui ui, Storage storage) {
-        ui.showMessage("Here are the tasks occurring on " + date + ":");
-        int matchCount = 1;
+    public String execute(TaskList tasks, Ui ui, Storage storage) {
+        StringBuilder sb = new StringBuilder("Here are the tasks occurring on " + date + ":\n");
+        int matchCount = 0;
         for (Task t : tasks.getTasks()) {
             if (t.occursOn(date)) {
-                ui.showMessage(matchCount + "." + t.toString());
                 matchCount++;
+                sb.append(matchCount).append(".").append(t.toString()).append("\n");
             }
         }
-        if (matchCount == 1) {
-            ui.showMessage("(No tasks found)");
+        if (matchCount == 0) {
+            return "(No tasks found)";
         }
+        return sb.toString().trim();
     }
 }

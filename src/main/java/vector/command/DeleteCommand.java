@@ -1,5 +1,6 @@
 package vector.command;
 
+import vector.VectorException;
 import vector.storage.Storage;
 import vector.task.Task;
 import vector.task.TaskList;
@@ -25,18 +26,18 @@ public class DeleteCommand extends Command {
      *
      * @param tasks   The task list to operate on.
      * @param ui      The user interface for displaying messages.
-     * @param storage The storage for saving updates.
+     * @return The response string.
+     * @throws VectorException If the index is invalid.
      */
     @Override
-    public void execute(TaskList tasks, Ui ui, Storage storage) {
+    public String execute(TaskList tasks, Ui ui, Storage storage) throws VectorException {
         try {
             Task removedTask = tasks.remove(index);
-            ui.showMessage("Noted. I've removed this task:");
-            ui.showMessage("  " + removedTask.toString());
-            ui.showMessage("Now you have " + tasks.size() + " tasks in the list.");
             storage.save(tasks.getTasks());
+            return "Noted. I've removed this task:\n  " + removedTask.toString()
+                    + "\nNow you have " + tasks.size() + " tasks in the list.";
         } catch (IndexOutOfBoundsException e) {
-            ui.showError("That task number does not exist in your list.");
+            throw new VectorException("That task number does not exist in your list.");
         }
     }
 }
