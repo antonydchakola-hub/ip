@@ -1,16 +1,13 @@
 package vector.task;
 
-import vector.VectorException;
-import vector.task.Task;
-
 /**
  * Represents a Todo task.
  */
 public class Todo extends Task {
-    
+
     /**
      * Constructs a Todo task.
-     * 
+     *
      * @param description The description of the todo.
      */
     public Todo(String description) {

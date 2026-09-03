@@ -1,11 +1,10 @@
 package vector;
 
-import vector.VectorException;
+import vector.command.Command;
+import vector.parser.Parser;
+import vector.storage.Storage;
 import vector.task.TaskList;
 import vector.ui.Ui;
-import vector.storage.Storage;
-import vector.parser.Parser;
-import vector.command.Command;
 
 /**
  * The main entry point for the Vector application.
@@ -18,7 +17,7 @@ public class Vector {
 
     /**
      * Constructs a Vector application instance.
-     * 
+     *
      * @param filePath The path to the data file where tasks are saved.
      */
     public Vector(String filePath) {
@@ -41,7 +40,7 @@ public class Vector {
             if (fullCommand.trim().isEmpty()) {
                 continue;
             }
-            
+
             try {
                 ui.showLine(); // show the divider line ("_______")
                 Command c = Parser.parse(fullCommand);
@@ -61,7 +60,7 @@ public class Vector {
 
     /**
      * Main method to start the Vector application.
-     * 
+     *
      * @param args Command-line arguments. Accepts "--clear-data" to clear existing task data.
      */
     public static void main(String[] args) {

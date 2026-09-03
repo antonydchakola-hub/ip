@@ -2,20 +2,20 @@ package vector.task;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+
 import vector.VectorException;
-import vector.task.Task;
 import vector.parser.DateTimeParser;
 
 /**
  * Represents a Deadline task.
  */
 public class Deadline extends Task {
-    
+
     protected LocalDateTime byTime;
 
     /**
      * Constructs a Deadline task.
-     * 
+     *
      * @param description The description of the deadline.
      * @param by The date/time by which the task needs to be done.
      * @throws VectorException if the date format is invalid.

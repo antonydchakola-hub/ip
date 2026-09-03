@@ -1,7 +1,7 @@
 package vector.storage;
 
 import java.util.ArrayList;
-import vector.VectorException;
+
 import vector.task.Deadline;
 import vector.task.Event;
 import vector.task.Task;
@@ -15,7 +15,7 @@ public class Storage {
 
     /**
      * Constructs a Storage object.
-     * 
+     *
      * @param filePath The path to the data file.
      */
     public Storage(String filePath) {
@@ -24,7 +24,7 @@ public class Storage {
 
     /**
      * Loads tasks from the data file.
-     * 
+     *
      * @return An ArrayList of tasks loaded from the file.
      */
     public ArrayList<Task> load() {
@@ -45,7 +45,7 @@ public class Storage {
                     String type = parts[0];
                     boolean isDone = parts[1].equals("1");
                     String desc = parts[2];
-                    
+
                     Task task = null;
                     if (type.equals("T")) {
                         task = new Todo(desc);
@@ -54,7 +54,7 @@ public class Storage {
                     } else if (type.equals("E") && parts.length >= 5) {
                         task = new Event(desc, parts[3], parts[4]);
                     }
-                    
+
                     if (task != null) {
                         if (isDone) {
                             task.markAsDone();
@@ -74,7 +74,7 @@ public class Storage {
 
     /**
      * Saves the current tasks to the data file.
-     * 
+     *
      * @param tasks The ArrayList of tasks to save.
      */
     public void save(ArrayList<Task> tasks) {

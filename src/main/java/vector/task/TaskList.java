@@ -1,7 +1,6 @@
 package vector.task;
 
 import java.util.ArrayList;
-import vector.task.Task;
 
 /**
  * Represents a list of tasks and provides operations to modify or retrieve them.

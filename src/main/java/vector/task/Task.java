@@ -1,7 +1,6 @@
 package vector.task;
 
 import java.time.LocalDate;
-import vector.VectorException;
 
 /**
  * Represents a task with a description and a completion status.
@@ -12,7 +11,7 @@ public class Task {
 
     /**
      * Constructs a new Task with the given description.
-     * 
+     *
      * @param description The description of the task.
      */
     public Task(String description) {
@@ -22,7 +21,7 @@ public class Task {
 
     /**
      * Gets the status icon of the task.
-     * 
+     *
      * @return "X" if the task is done, " " otherwise.
      */
     public String getStatusIcon() {
@@ -45,7 +44,7 @@ public class Task {
 
     /**
      * Gets the description of the task.
-     * 
+     *
      * @return The description.
      */
     public String getDescription() {
@@ -54,7 +53,7 @@ public class Task {
 
     /**
      * Returns the string representation of the task.
-     * 
+     *
      * @return A string in the format "[statusIcon] description".
      */
     @Override
@@ -64,7 +63,7 @@ public class Task {
 
     /**
      * Returns the string representation of the task for file storage.
-     * 
+     *
      * @return A string formatted for file storage.
      */
     public String toFileFormat() {
@@ -74,7 +73,7 @@ public class Task {
     /**
      * Checks if the task occurs on a specific date.
      * By default, a task does not occur on any specific date unless overridden.
-     * 
+     *
      * @param date The date to check against.
      * @return true if it occurs on the date, false otherwise.
      */

@@ -1,7 +1,6 @@
 package vector.ui;
 
 import java.util.Scanner;
-import vector.VectorException;
 
 /**
  * Handles interactions with the user, including reading input and displaying messages.
@@ -42,7 +41,7 @@ public class Ui {
 
     /**
      * Displays a standard message to the user, properly indented.
-     * 
+     *
      * @param message The message to display.
      */
     public void showMessage(String message) {
@@ -51,7 +50,7 @@ public class Ui {
 
     /**
      * Displays an error message to the user, properly indented and prefixed.
-     * 
+     *
      * @param message The error message to display.
      */
     public void showError(String message) {
@@ -60,7 +59,7 @@ public class Ui {
 
     /**
      * Reads the next command input from the user.
-     * 
+     *
      * @return The user's input string.
      */
     public String readCommand() {

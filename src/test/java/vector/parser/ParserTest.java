@@ -1,22 +1,21 @@
 package vector.parser;
 
-import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import org.junit.jupiter.api.Test;
 
 import vector.VectorException;
-import vector.command.Command;
-import vector.command.ExitCommand;
-import vector.command.ListCommand;
-import vector.command.DeleteCommand;
 import vector.command.AddCommand;
-import vector.command.MarkCommand;
-import vector.command.UnmarkCommand;
-import vector.command.ScheduleCommand;
+import vector.command.Command;
+import vector.command.DeleteCommand;
+import vector.command.ExitCommand;
 import vector.command.FindCommand;
-import vector.task.Deadline;
-import vector.task.Event;
+import vector.command.ListCommand;
+import vector.command.MarkCommand;
+import vector.command.ScheduleCommand;
+import vector.command.UnmarkCommand;
 
 public class ParserTest {
 
@@ -36,7 +35,8 @@ public class ParserTest {
     public void parse_deleteCommandWithValidIndex_returnsDeleteCommand() throws VectorException {
         Command command = Parser.parse("delete 2");
         assertTrue(command instanceof DeleteCommand);
-        // Note: we'd need a getter in DeleteCommand to verify the index, but checking the type is good enough for basic testing.
+        // Note: we'd need a getter in DeleteCommand to verify the index,
+        // but checking the type is good enough for basic testing.
     }
 
     @Test
@@ -67,7 +67,8 @@ public class ParserTest {
             Parser.parse("hello");
         });
         assertEquals("I don't recognize that command. "
-                + "Valid commands are: todo, deadline, event, list, mark, unmark, delete, schedule, find, bye.", thrown.getMessage());
+                + "Valid commands are: todo, deadline, event, list, mark, "
+                + "unmark, delete, schedule, find, bye.", thrown.getMessage());
     }
 
     @Test

@@ -1,6 +1,7 @@
 package vector.command;
 
 import java.util.ArrayList;
+
 import vector.VectorException;
 import vector.storage.Storage;
 import vector.task.Task;
@@ -15,7 +16,7 @@ public class FindCommand extends Command {
 
     /**
      * Constructs a FindCommand with the specified keyword.
-     * 
+     *
      * @param keyword The keyword to search for in task descriptions.
      */
     public FindCommand(String keyword) {

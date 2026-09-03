@@ -1,19 +1,18 @@
 package vector.parser;
 
 import vector.VectorException;
-import vector.task.Deadline;
-import vector.task.Event;
-import vector.task.Todo;
-import vector.parser.DateTimeParser;
 import vector.command.AddCommand;
 import vector.command.Command;
 import vector.command.DeleteCommand;
 import vector.command.ExitCommand;
+import vector.command.FindCommand;
 import vector.command.ListCommand;
 import vector.command.MarkCommand;
 import vector.command.ScheduleCommand;
 import vector.command.UnmarkCommand;
-import vector.command.FindCommand;
+import vector.task.Deadline;
+import vector.task.Event;
+import vector.task.Todo;
 
 /**
  * Parses user input into executable commands.
@@ -29,7 +28,7 @@ public class Parser {
     public static Command parse(String fullCommand) throws VectorException {
         String[] parts = fullCommand.split(" ", 2);
         String action = parts[0].trim().toLowerCase();
-        
+
         switch (action) {
             case "bye":
                 if (parts.length > 1 && !parts[1].trim().isEmpty()) {
@@ -86,8 +85,8 @@ public class Parser {
                 String[] timeParts = eventParts[1].split(" /to ");
                 if (timeParts.length < 2 || desc.isEmpty() || timeParts[0].trim().isEmpty()
                         || timeParts[1].trim().isEmpty()) {
-                     throw new VectorException("The event format is incorrect. "
-                             + "Use: event <task> /from <start> /to <end>");
+                    throw new VectorException("The event format is incorrect. "
+                            + "Use: event <task> /from <start> /to <end>");
                 }
                 return new AddCommand(new Event(desc, timeParts[0].trim(), timeParts[1].trim()));
             case "schedule":
@@ -105,7 +104,8 @@ public class Parser {
                 return new FindCommand(parts[1].trim());
             default:
                 throw new VectorException("I don't recognize that command. "
-                        + "Valid commands are: todo, deadline, event, list, mark, unmark, delete, schedule, find, bye.");
+                        + "Valid commands are: todo, deadline, event, list, mark, unmark, "
+                        + "delete, schedule, find, bye.");
         }
     }
 }

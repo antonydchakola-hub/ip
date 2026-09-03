@@ -1,10 +1,8 @@
 package vector.command;
 
-import vector.VectorException;
+import vector.storage.Storage;
 import vector.task.TaskList;
 import vector.ui.Ui;
-import vector.storage.Storage;
-import vector.command.Command;
 
 /**
  * Represents a command to exit the application.
@@ -12,7 +10,7 @@ import vector.command.Command;
 public class ExitCommand extends Command {
     /**
      * Executes the command, displaying a goodbye message.
-     * 
+     *
      * @param tasks   The task list to operate on.
      * @param ui      The user interface for displaying messages.
      * @param storage The storage for saving updates.
@@ -21,10 +19,10 @@ public class ExitCommand extends Command {
     public void execute(TaskList tasks, Ui ui, Storage storage) {
         ui.showMessage("Bye. Hope to see you again soon!");
     }
-    
+
     /**
      * Determines whether this command should exit the application.
-     * 
+     *
      * @return true, as this is the exit command.
      */
     @Override

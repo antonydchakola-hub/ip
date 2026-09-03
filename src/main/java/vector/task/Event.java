@@ -2,21 +2,21 @@ package vector.task;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+
 import vector.VectorException;
-import vector.task.Task;
 import vector.parser.DateTimeParser;
 
 /**
  * Represents an Event task.
  */
 public class Event extends Task {
-    
+
     protected LocalDateTime fromTime;
     protected LocalDateTime toTime;
 
     /**
      * Constructs an Event task.
-     * 
+     *
      * @param description The description of the event.
      * @param from The start date/time of the event.
      * @param to The end date/time of the event.
@@ -37,13 +37,13 @@ public class Event extends Task {
 
     @Override
     public String toString() {
-        return "[E]" + super.toString() + " (from: " + DateTimeParser.format(fromTime) 
+        return "[E]" + super.toString() + " (from: " + DateTimeParser.format(fromTime)
                 + " to: " + DateTimeParser.format(toTime) + ")";
     }
 
     @Override
     public String toFileFormat() {
-        return "E" + super.toFileFormat() + " | " + DateTimeParser.formatForFile(fromTime) 
+        return "E" + super.toFileFormat() + " | " + DateTimeParser.formatForFile(fromTime)
                 + " | " + DateTimeParser.formatForFile(toTime);
     }
 }
