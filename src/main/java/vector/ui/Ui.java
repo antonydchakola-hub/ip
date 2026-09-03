@@ -27,8 +27,7 @@ public class Ui {
                 + "    \\_/  |______\\____| |_| \\___/|_| \\_\\\n";
         showLine();
         System.out.print(banner);
-        System.out.println("     Hello! I'm Vector");
-        System.out.println("     What can I do for you?");
+        showMessage("Hello! I'm Vector", "What can I do for you?");
         showLine();
     }
 
@@ -40,12 +39,15 @@ public class Ui {
     }
 
     /**
-     * Displays a standard message to the user, properly indented.
+     * Displays messages to the user, properly indented.
+     * Supports variable number of arguments (varargs) to print multiple lines easily.
      *
-     * @param message The message to display.
+     * @param messages The messages to display.
      */
-    public void showMessage(String message) {
-        System.out.println("     " + message);
+    public void showMessage(String... messages) {
+        for (String message : messages) {
+            System.out.println("     " + message);
+        }
     }
 
     /**
