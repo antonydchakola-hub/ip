@@ -16,9 +16,10 @@ public abstract class Command {
      * @param tasks   The task list to operate on.
      * @param ui      The user interface for displaying messages.
      * @param storage The storage for saving updates.
+     * @return The response string.
      * @throws VectorException If an error occurs during execution.
      */
-    public abstract void execute(TaskList tasks, Ui ui, Storage storage) throws VectorException;
+    public abstract String execute(TaskList tasks, Ui ui, Storage storage) throws VectorException;
 
     /**
      * Determines whether this command should exit the application.

@@ -7,6 +7,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.media.AudioClip;
 
 /**
  * Controller for the main GUI.
@@ -51,9 +52,18 @@ public class MainWindow extends AnchorPane {
     private void handleUserInput() {
         String input = userInput.getText();
         String response = vector.getResponse(input);
+        String commandType = vector.getCommandType();
+
+        try {
+            AudioClip sendSound = new AudioClip(this.getClass().getResource("/audio/send.wav").toExternalForm());
+            sendSound.play();
+        } catch (Exception e) {
+            // Ignore sound error
+        }
+
         dialogContainer.getChildren().addAll(
                 DialogBox.getUserDialog(input, userImage),
-                DialogBox.getVectorDialog(response, vectorImage)
+                DialogBox.getVectorDialog(response, vectorImage, commandType)
         );
         userInput.clear();
     }

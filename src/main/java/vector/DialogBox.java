@@ -13,6 +13,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
+import javafx.scene.shape.Circle;
 
 /**
  * Represents a dialog box consisting of an ImageView to represent the speaker's face
@@ -36,6 +37,10 @@ public class DialogBox extends HBox {
 
         dialog.setText(text);
         displayPicture.setImage(img);
+
+        // Make the avatar circular
+        Circle clip = new Circle(49.5, 49.5, 49.5);
+        displayPicture.setClip(clip);
     }
 
     /**
@@ -56,7 +61,33 @@ public class DialogBox extends HBox {
      * @return A dialog box representing the user.
      */
     public static DialogBox getUserDialog(String text, Image img) {
-        return new DialogBox(text, img);
+        var db = new DialogBox(text, img);
+        db.getStyleClass().add("user-bubble");
+        return db;
+    }
+
+    /**
+     * Changes the dialog style based on the command type.
+     *
+     * @param commandType The type of the command.
+     */
+    private void changeDialogStyle(String commandType) {
+        switch (commandType) {
+            case "AddCommand":
+                dialog.getStyleClass().add("add-label");
+                break;
+            case "MarkCommand":
+                dialog.getStyleClass().add("marked-label");
+                break;
+            case "DeleteCommand":
+                dialog.getStyleClass().add("delete-label");
+                break;
+            case "Error":
+                dialog.getStyleClass().add("error-label");
+                break;
+            default:
+                // Do nothing
+        }
     }
 
     /**
@@ -64,11 +95,14 @@ public class DialogBox extends HBox {
      *
      * @param text The text to display.
      * @param img The image representing the speaker.
+     * @param commandType The command type to determine styling.
      * @return A dialog box representing Vector.
      */
-    public static DialogBox getVectorDialog(String text, Image img) {
+    public static DialogBox getVectorDialog(String text, Image img, String commandType) {
         var db = new DialogBox(text, img);
         db.flip();
+        db.getStyleClass().add("vector-bubble");
+        db.changeDialogStyle(commandType);
         return db;
     }
 }

@@ -26,13 +26,13 @@ public class AddCommand extends Command {
      * @param tasks   The task list to operate on.
      * @param ui      The user interface for displaying messages.
      * @param storage The storage for saving updates.
+     * @return The response string.
      */
     @Override
-    public void execute(TaskList tasks, Ui ui, Storage storage) {
+    public String execute(TaskList tasks, Ui ui, Storage storage) {
         tasks.add(task);
-        ui.showMessage("Got it. I've added this task:");
-        ui.showMessage("  " + task.toString());
-        ui.showMessage("Now you have " + tasks.size() + " tasks in the list.");
         storage.save(tasks.getTasks());
+        return "Got it. I've added this task:\n  " + task.toString() + "\nNow you have "
+                + tasks.size() + " tasks in the list.";
     }
 }

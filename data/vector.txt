@@ -4,3 +4,4 @@ T | 0 | buy groceries
 T | 0 | buy book
 T | 0 | borrow book
 T | 0 | meet up with josh
+T | 0 | do CS2100
