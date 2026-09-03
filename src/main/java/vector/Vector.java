@@ -27,6 +27,16 @@ public class Vector {
     }
 
     /**
+     * Generates a response for the user's chat message.
+     *
+     * @param input User input string.
+     * @return Response string.
+     */
+    public String getResponse(String input) {
+        return "Vector heard: " + input;
+    }
+
+    /**
      * Runs the main loop of the Vector application, continuously reading and executing user commands.
      */
     public void run() {
