@@ -22,6 +22,7 @@ public class Vector {
      * @param filePath The path to the data file where tasks are saved.
      */
     public Vector(String filePath) {
+        assert filePath != null && !filePath.trim().isEmpty() : "File path cannot be null or empty";
         ui = new Ui();
         storage = new Storage(filePath);
         tasks = new TaskList(storage.load());
@@ -34,6 +35,7 @@ public class Vector {
      * @return Response string.
      */
     public String getResponse(String input) {
+        assert input != null : "User input should not be null";
         try {
             Command c = Parser.parse(input);
             String response = c.execute(tasks, ui, storage);
