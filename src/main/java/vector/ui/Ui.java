@@ -45,13 +45,10 @@ public class Ui {
      * @param messages The messages to display.
      */
     public void showMessage(String... messages) {
-        assert messages != null : "Messages should not be null";
-        for (String message : messages) {
-            String[] lines = message.split("\\r?\\n");
-            for (String line : lines) {
-                System.out.println("     " + line);
-            }
-        }
+        java.util.Arrays.stream(messages)
+                .flatMap(msg -> java.util.Arrays.stream(msg.split("\\r?\\n")))
+                .map(line -> "     " + line)
+                .forEach(System.out::println);
     }
 
     /**
