@@ -6,6 +6,7 @@ import vector.command.Command;
 import vector.command.DeleteCommand;
 import vector.command.ExitCommand;
 import vector.command.FindCommand;
+import vector.command.HelpCommand;
 import vector.command.ListCommand;
 import vector.command.MarkCommand;
 import vector.command.ScheduleCommand;
@@ -51,10 +52,12 @@ public class Parser {
                 return prepareSchedule(parts);
             case "find":
                 return prepareFind(parts);
+            case "help":
+                return prepareHelp(parts);
             default:
                 throw new VectorException("I don't recognize that command. "
                         + "Valid commands are: todo, deadline, event, list, mark, unmark, "
-                        + "delete, schedule, find, bye.");
+                        + "delete, schedule, find, help, bye.");
         }
     }
 
@@ -148,5 +151,12 @@ public class Parser {
                     + "For example: find book");
         }
         return new FindCommand(parts[1].trim());
+    }
+
+    private static Command prepareHelp(String[] parts) throws VectorException {
+        if (parts.length > 1 && !parts[1].trim().isEmpty()) {
+            throw new VectorException("The help command does not take any arguments.");
+        }
+        return new HelpCommand();
     }
 }

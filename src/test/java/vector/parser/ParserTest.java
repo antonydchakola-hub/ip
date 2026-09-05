@@ -68,7 +68,7 @@ public class ParserTest {
         });
         assertEquals("I don't recognize that command. "
                 + "Valid commands are: todo, deadline, event, list, mark, "
-                + "unmark, delete, schedule, find, bye.", thrown.getMessage());
+                + "unmark, delete, schedule, find, help, bye.", thrown.getMessage());
     }
 
     @Test

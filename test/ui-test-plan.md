@@ -93,7 +93,7 @@ bye
      Now you have 1 tasks in the list.
     ____________________________________________________________
     ____________________________________________________________
-     OOPS!!! I don't recognize that command. Valid commands are: todo, deadline, event, list, mark, unmark, delete, schedule, find, bye.
+     OOPS!!! I don't recognize that command. Valid commands are: todo, deadline, event, list, mark, unmark, delete, schedule, find, help, bye.
     ____________________________________________________________
     ____________________________________________________________
      Here are the tasks in your list:
@@ -597,6 +597,45 @@ bye
      Here are the matching tasks in your list:
      1.[T][X] read book
      2.[D][X] return book (by: Jun 6 2023, 11:59 pm)
+    ____________________________________________________________
+    ____________________________________________________________
+     Bye. Hope to see you again soon!
+    ____________________________________________________________
+```
+
+## Test case 16: Help command
+- Aim: Verify that the help command lists all available commands.
+
+### Inputs
+```text
+help
+bye
+```
+
+### Expected output
+```text
+    ____________________________________________________________
+ __     _______ ____ _____ ___  ____
+ \ \   / / ____/ ___|_   _/  _ \|  _ \
+  \ \ / /|  _| | |     | || | | | |_) |
+   \ V / | |___| |___  | || |_| |  _ <
+    \_/  |______\____| |_| \___/|_| \_\
+     Hello! I'm Vector
+     What can I do for you?
+    ____________________________________________________________
+    ____________________________________________________________
+     Here are the commands you can use:
+     1. todo <description> - Adds a todo task
+     2. deadline <description> /by <date/time> - Adds a deadline task
+     3. event <description> /from <start> /to <end> - Adds an event
+     4. list - Lists all tasks
+     5. mark <task_number> - Marks a task as done
+     6. unmark <task_number> - Marks a task as not done
+     7. delete <task_number> - Deletes a task
+     8. find <keyword> - Finds tasks by keyword
+     9. schedule <date> - Finds tasks occurring on a date
+     10. help - Shows this help message
+     11. bye - Exits the application
     ____________________________________________________________
     ____________________________________________________________
      Bye. Hope to see you again soon!
