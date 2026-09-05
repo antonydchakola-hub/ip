@@ -11,6 +11,12 @@ import vector.task.Todo;
  * Handles loading tasks from and saving tasks to the data file.
  */
 public class Storage {
+    private static final String TYPE_TODO = "T";
+    private static final String TYPE_DEADLINE = "D";
+    private static final String TYPE_EVENT = "E";
+    private static final String STATUS_DONE = "1";
+    private static final String DELIMITER = " \\| ";
+
     private String filePath;
 
     /**
@@ -34,42 +40,48 @@ public class Storage {
             return tasks;
         }
         try {
-            java.util.Scanner sc = new java.util.Scanner(file);
-            while (sc.hasNextLine()) {
+            java.util.Scanner scanner = new java.util.Scanner(file);
+            while (scanner.hasNextLine()) {
                 try {
-                    String line = sc.nextLine();
-                    String[] parts = line.split(" \\| ");
-                    if (parts.length < 3) {
-                        continue;
-                    }
-                    String type = parts[0];
-                    boolean isDone = parts[1].equals("1");
-                    String desc = parts[2];
-
-                    Task task = null;
-                    if (type.equals("T")) {
-                        task = new Todo(desc);
-                    } else if (type.equals("D") && parts.length >= 4) {
-                        task = new Deadline(desc, parts[3]);
-                    } else if (type.equals("E") && parts.length >= 5) {
-                        task = new Event(desc, parts[3], parts[4]);
-                    }
-
+                    String line = scanner.nextLine();
+                    Task task = parseLineToTask(line);
                     if (task != null) {
-                        if (isDone) {
-                            task.markAsDone();
-                        }
                         tasks.add(task);
                     }
                 } catch (Exception e) {
                     System.out.println("Skipping corrupted data line: " + e.getMessage());
                 }
             }
-            sc.close();
+            scanner.close();
         } catch (java.io.FileNotFoundException e) {
             System.out.println("Data file not found.");
         }
         return tasks;
+    }
+
+    private Task parseLineToTask(String line) throws Exception {
+        String[] parts = line.split(DELIMITER);
+        if (parts.length < 3) {
+            return null;
+        }
+        String type = parts[0];
+        String isDoneString = parts[1];
+        String description = parts[2];
+        boolean isDone = isDoneString.equals(STATUS_DONE);
+
+        Task task = null;
+        if (type.equals(TYPE_TODO)) {
+            task = new Todo(description);
+        } else if (type.equals(TYPE_DEADLINE) && parts.length >= 4) {
+            task = new Deadline(description, parts[3]);
+        } else if (type.equals(TYPE_EVENT) && parts.length >= 5) {
+            task = new Event(description, parts[3], parts[4]);
+        }
+
+        if (task != null && isDone) {
+            task.markAsDone();
+        }
+        return task;
     }
 
     /**
@@ -85,11 +97,11 @@ public class Storage {
             if (dir != null && !dir.exists()) {
                 dir.mkdirs();
             }
-            java.io.FileWriter fw = new java.io.FileWriter(file);
+            java.io.FileWriter fileWriter = new java.io.FileWriter(file);
             for (Task task : tasks) {
-                fw.write(task.toFileFormat() + "\n");
+                fileWriter.write(task.toFileFormat() + "\n");
             }
-            fw.close();
+            fileWriter.close();
         } catch (java.io.IOException e) {
             System.out.println("Something went wrong saving tasks: " + e.getMessage());
         }

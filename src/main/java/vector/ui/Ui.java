@@ -45,9 +45,12 @@ public class Ui {
      * @param messages The messages to display.
      */
     public void showMessage(String... messages) {
-        assert messages != null : "Messages to show should not be null";
+        assert messages != null : "Messages should not be null";
         for (String message : messages) {
-            System.out.println("     " + message.replace("\n", "\n     "));
+            String[] lines = message.split("\\r?\\n");
+            for (String line : lines) {
+                System.out.println("     " + line);
+            }
         }
     }
 
