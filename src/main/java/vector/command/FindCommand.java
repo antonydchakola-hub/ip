@@ -30,13 +30,9 @@ public class FindCommand extends Command {
             return "No matching tasks found.";
         }
 
-        StringBuilder sb = new StringBuilder("Here are the matching tasks in your list:\n");
-        for (int i = 0; i < matchingTasks.size(); i++) {
-            sb.append(i + 1).append(".").append(matchingTasks.get(i).toString());
-            if (i < matchingTasks.size() - 1) {
-                sb.append("\n");
-            }
-        }
-        return sb.toString();
+        String taskListStr = java.util.stream.IntStream.range(0, matchingTasks.size())
+                .mapToObj(i -> (i + 1) + "." + matchingTasks.get(i).toString())
+                .collect(java.util.stream.Collectors.joining("\n"));
+        return "Here are the matching tasks in your list:\n" + taskListStr;
     }
 }

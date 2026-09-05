@@ -1,6 +1,6 @@
 # Vector Text UI Test Plan
 
-- Setup command: `javac -d _temp/ui-test-classes src/main/java/vector/*.java src/main/java/vector/ui/*.java src/main/java/vector/storage/*.java src/main/java/vector/task/*.java src/main/java/vector/parser/*.java src/main/java/vector/command/*.java`
+- Setup command: `javac -d _temp/ui-test-classes src/main/java/vector/Vector.java src/main/java/vector/VectorException.java src/main/java/vector/ui/*.java src/main/java/vector/storage/*.java src/main/java/vector/task/*.java src/main/java/vector/parser/*.java src/main/java/vector/command/*.java`
 - Program command: `java -cp _temp/ui-test-classes vector.Vector --clear-data`
 - Timeout seconds: `10`
 
@@ -58,7 +58,7 @@ bye
      OOPS!!! That task number does not exist in your list.
     ____________________________________________________________
     ____________________________________________________________
-     Here are the tasks in your list:
+     Your task list is empty.
     ____________________________________________________________
     ____________________________________________________________
      Bye. Hope to see you again soon!

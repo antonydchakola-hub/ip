@@ -32,18 +32,21 @@ public class DateTimeParser {
      * @throws VectorException if the string does not match any known format.
      */
     public static LocalDateTime parse(String text) throws VectorException {
-        for (DateTimeFormatter formatter : FORMATTERS) {
-            try {
-                return LocalDateTime.parse(text, formatter);
-            } catch (DateTimeParseException e) {
-                try {
-                    return LocalDate.parse(text, formatter).atStartOfDay();
-                } catch (DateTimeParseException ex) {
-                    // Ignore and try the next formatter
-                }
-            }
-        }
-        throw new VectorException("Invalid date/time format. Please use 'yyyy-MM-dd' or 'd/M/yyyy HHmm'.");
+        return FORMATTERS.stream()
+                .map(formatter -> {
+                    try {
+                        return LocalDateTime.parse(text, formatter);
+                    } catch (DateTimeParseException e) {
+                        try {
+                            return LocalDate.parse(text, formatter).atStartOfDay();
+                        } catch (DateTimeParseException ex) {
+                            return null;
+                        }
+                    }
+                })
+                .filter(java.util.Objects::nonNull)
+                .findFirst()
+                .orElseThrow(() -> new VectorException("Invalid date/time format. Please use 'yyyy-MM-dd' or 'd/M/yyyy HHmm'."));
     }
 
     /**
@@ -55,14 +58,17 @@ public class DateTimeParser {
      * @throws VectorException if the string does not match any known format.
      */
     public static LocalDate parseDate(String text) throws VectorException {
-        for (DateTimeFormatter formatter : FORMATTERS) {
-            try {
-                return LocalDate.parse(text, formatter);
-            } catch (DateTimeParseException ex) {
-                // Ignore and try the next formatter
-            }
-        }
-        throw new VectorException("Invalid date format. Please use 'yyyy-MM-dd'.");
+        return FORMATTERS.stream()
+                .map(formatter -> {
+                    try {
+                        return LocalDate.parse(text, formatter);
+                    } catch (DateTimeParseException ex) {
+                        return null;
+                    }
+                })
+                .filter(java.util.Objects::nonNull)
+                .findFirst()
+                .orElseThrow(() -> new VectorException("Invalid date format. Please use 'yyyy-MM-dd'."));
     }
 
     /**

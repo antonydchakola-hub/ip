@@ -30,17 +30,15 @@ public class ScheduleCommand extends Command {
      */
     @Override
     public String execute(TaskList tasks, Ui ui, Storage storage) {
-        StringBuilder sb = new StringBuilder("Here are the tasks occurring on " + date + ":\n");
-        int matchCount = 0;
-        for (Task t : tasks.getTasks()) {
-            if (t.occursOn(date)) {
-                matchCount++;
-                sb.append(matchCount).append(".").append(t.toString()).append("\n");
-            }
-        }
-        if (matchCount == 0) {
+        java.util.List<Task> occurrences = tasks.getTasks().stream()
+                .filter(t -> t.occursOn(date))
+                .collect(java.util.stream.Collectors.toList());
+        if (occurrences.isEmpty()) {
             return "(No tasks found)";
         }
-        return sb.toString().trim();
+        String taskListStr = java.util.stream.IntStream.range(0, occurrences.size())
+                .mapToObj(i -> (i + 1) + "." + occurrences.get(i).toString())
+                .collect(java.util.stream.Collectors.joining("\n"));
+        return "Here are the tasks occurring on " + date + ":\n" + taskListStr;
     }
 }

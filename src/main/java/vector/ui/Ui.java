@@ -45,9 +45,10 @@ public class Ui {
      * @param messages The messages to display.
      */
     public void showMessage(String... messages) {
-        for (String message : messages) {
-            System.out.println("     " + message);
-        }
+        java.util.Arrays.stream(messages)
+                .flatMap(msg -> java.util.Arrays.stream(msg.split("\\r?\\n")))
+                .map(line -> "     " + line)
+                .forEach(System.out::println);
     }
 
     /**
