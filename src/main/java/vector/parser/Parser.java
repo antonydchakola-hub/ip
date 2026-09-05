@@ -26,6 +26,7 @@ public class Parser {
      * @throws VectorException If the user input is invalid or improperly formatted.
      */
     public static Command parse(String fullCommand) throws VectorException {
+        assert fullCommand != null : "Command string should not be null";
         String[] parts = fullCommand.split(" ", 2);
         String action = parts[0].trim().toLowerCase();
 
