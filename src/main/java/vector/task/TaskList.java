@@ -14,6 +14,7 @@ public class TaskList {
      * @param tasks An ArrayList of Task objects.
      */
     public TaskList(ArrayList<Task> tasks) {
+        assert tasks != null : "Initial task list should not be null";
         this.tasks = tasks;
     }
 
@@ -30,6 +31,7 @@ public class TaskList {
      * @param task The task to add.
      */
     public void add(Task task) {
+        assert task != null : "Cannot add a null task to the list";
         tasks.add(task);
     }
 
@@ -78,6 +80,7 @@ public class TaskList {
      * @return An ArrayList of matching tasks.
      */
     public ArrayList<Task> findTasks(String keyword) {
+        assert keyword != null : "Search keyword should not be null";
         ArrayList<Task> matchingTasks = new ArrayList<>();
         for (Task task : tasks) {
             if (task.getDescription().contains(keyword)) {

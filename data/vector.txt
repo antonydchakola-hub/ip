@@ -1,7 +1,3 @@
 T | 1 | read book
 D | 1 | return book | 2023-06-06 2359
 T | 0 | buy groceries
-T | 0 | buy book
-T | 0 | borrow book
-T | 0 | meet up with josh
-T | 0 | do CS2100
