@@ -31,30 +31,30 @@ public class Parser {
         String action = parts[0].trim().toLowerCase();
 
         switch (action) {
-        case "bye":
-            return prepareBye(parts);
-        case "list":
-            return prepareList(parts);
-        case "delete":
-            return prepareDelete(parts);
-        case "mark":
-            return prepareMark(parts);
-        case "unmark":
-            return prepareUnmark(parts);
-        case "todo":
-            return prepareTodo(parts);
-        case "deadline":
-            return prepareDeadline(parts);
-        case "event":
-            return prepareEvent(parts);
-        case "schedule":
-            return prepareSchedule(parts);
-        case "find":
-            return prepareFind(parts);
-        default:
-            throw new VectorException("I don't recognize that command. "
-                    + "Valid commands are: todo, deadline, event, list, mark, unmark, "
-                    + "delete, schedule, find, bye.");
+            case "bye":
+                return prepareBye(parts);
+            case "list":
+                return prepareList(parts);
+            case "delete":
+                return prepareDelete(parts);
+            case "mark":
+                return prepareMark(parts);
+            case "unmark":
+                return prepareUnmark(parts);
+            case "todo":
+                return prepareTodo(parts);
+            case "deadline":
+                return prepareDeadline(parts);
+            case "event":
+                return prepareEvent(parts);
+            case "schedule":
+                return prepareSchedule(parts);
+            case "find":
+                return prepareFind(parts);
+            default:
+                throw new VectorException("I don't recognize that command. "
+                        + "Valid commands are: todo, deadline, event, list, mark, unmark, "
+                        + "delete, schedule, find, bye.");
         }
     }
 

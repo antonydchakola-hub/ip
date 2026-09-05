@@ -1,12 +1,8 @@
 package vector.storage;
 
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import vector.task.Deadline;
-import vector.task.Event;
-import vector.task.Task;
-import vector.task.Todo;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -15,9 +11,14 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.junit.jupiter.api.Assertions.fail;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import vector.task.Deadline;
+import vector.task.Event;
+import vector.task.Task;
+import vector.task.Todo;
 
 public class StorageTest {
 
@@ -59,7 +60,7 @@ public class StorageTest {
         // Validate Deadline
         assertTrue(tasks.get(1) instanceof Deadline);
         assertEquals("return book", tasks.get(1).getDescription());
-        
+
         // Validate Event
         assertTrue(tasks.get(2) instanceof Event);
         assertEquals("project meeting", tasks.get(2).getDescription());

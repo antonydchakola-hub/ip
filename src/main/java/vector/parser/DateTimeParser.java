@@ -46,7 +46,8 @@ public class DateTimeParser {
                 })
                 .filter(java.util.Objects::nonNull)
                 .findFirst()
-                .orElseThrow(() -> new VectorException("Invalid date/time format. Please use 'yyyy-MM-dd' or 'd/M/yyyy HHmm'."));
+                .orElseThrow(() -> new VectorException(
+                        "Invalid date/time format. Please use 'yyyy-MM-dd' or 'd/M/yyyy HHmm'."));
     }
 
     /**
