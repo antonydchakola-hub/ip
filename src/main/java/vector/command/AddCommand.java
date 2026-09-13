@@ -32,7 +32,7 @@ public class AddCommand extends Command {
     public String execute(TaskList tasks, Ui ui, Storage storage) {
         tasks.add(task);
         storage.save(tasks.getTasks());
-        return "Got it. I've added this task:\n  " + task.toString() + "\nNow you have "
-                + tasks.size() + " tasks in the list.";
+        return "Data logged. New task added to the matrix:\n  " + task.toString() + "\nNow you have "
+                + tasks.size() + " tasks in the matrix.";
     }
 }

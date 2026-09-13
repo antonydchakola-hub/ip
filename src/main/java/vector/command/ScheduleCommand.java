@@ -39,6 +39,6 @@ public class ScheduleCommand extends Command {
         String taskListStr = java.util.stream.IntStream.range(0, occurrences.size())
                 .mapToObj(i -> (i + 1) + "." + occurrences.get(i).toString())
                 .collect(java.util.stream.Collectors.joining("\n"));
-        return "Here are the tasks occurring on " + date + ":\n" + taskListStr;
+        return "Scanning schedule for " + date + ". Results:\n" + taskListStr;
     }
 }

@@ -24,6 +24,6 @@ public class ListCommand extends Command {
         String taskListStr = java.util.stream.IntStream.range(0, tasks.size())
                 .mapToObj(i -> (i + 1) + "." + tasks.get(i).toString())
                 .collect(java.util.stream.Collectors.joining("\n"));
-        return "Here are the tasks in your list:\n" + taskListStr;
+        return "Accessing database... Current task matrix:\n" + taskListStr;
     }
 }

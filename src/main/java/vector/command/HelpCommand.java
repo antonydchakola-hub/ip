@@ -19,7 +19,7 @@ public class HelpCommand extends Command {
      */
     @Override
     public String execute(TaskList tasks, Ui ui, Storage storage) {
-        return "Here are the commands you can use:\n"
+        return "Displaying available system commands:\n"
                 + "1. todo <description> - Adds a todo task\n"
                 + "2. deadline <description> /by <date/time> - Adds a deadline task\n"
                 + "3. event <description> /from <start> /to <end> - Adds an event\n"

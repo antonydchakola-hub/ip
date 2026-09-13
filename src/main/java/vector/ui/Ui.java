@@ -27,7 +27,8 @@ public class Ui {
                 + "    \\_/  |______\\____| |_| \\___/|_| \\_\\\n";
         showLine();
         System.out.print(banner);
-        showMessage("Hello! I'm Vector", "What can I do for you?");
+        showMessage("Initialization complete. I am Vector, your personal cybernetic assistant.",
+                "Awaiting input protocols.");
         showLine();
     }
 
@@ -57,7 +58,7 @@ public class Ui {
      * @param message The error message to display.
      */
     public void showError(String message) {
-        System.out.println("     OOPS!!! " + message);
+        System.out.println("     SYSTEM FAULT: " + message);
     }
 
     /**

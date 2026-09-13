@@ -25,11 +25,11 @@ bye
   \ \ / /|  _| | |     | || | | | |_) |
    \ V / | |___| |___  | || |_| |  _ <
     \_/  |______\____| |_| \___/|_| \_\
-     Hello! I'm Vector
-     What can I do for you?
+     Initialization complete. I am Vector, your personal cybernetic assistant.
+     Awaiting input protocols.
     ____________________________________________________________
     ____________________________________________________________
-     Bye. Hope to see you again soon!
+     System shutting down. End of line.
     ____________________________________________________________
 ```
 
@@ -51,17 +51,17 @@ bye
   \ \ / /|  _| | |     | || | | | |_) |
    \ V / | |___| |___  | || |_| |  _ <
     \_/  |______\____| |_| \___/|_| \_\
-     Hello! I'm Vector
-     What can I do for you?
+     Initialization complete. I am Vector, your personal cybernetic assistant.
+     Awaiting input protocols.
     ____________________________________________________________
     ____________________________________________________________
-     OOPS!!! That task number does not exist in your list.
+     SYSTEM FAULT: That task number does not exist in your list.
     ____________________________________________________________
     ____________________________________________________________
      Your task list is empty.
     ____________________________________________________________
     ____________________________________________________________
-     Bye. Hope to see you again soon!
+     System shutting down. End of line.
     ____________________________________________________________
 ```
 
@@ -84,23 +84,23 @@ bye
   \ \ / /|  _| | |     | || | | | |_) |
    \ V / | |___| |___  | || |_| |  _ <
     \_/  |______\____| |_| \___/|_| \_\
-     Hello! I'm Vector
-     What can I do for you?
+     Initialization complete. I am Vector, your personal cybernetic assistant.
+     Awaiting input protocols.
     ____________________________________________________________
     ____________________________________________________________
-     Got it. I've added this task:
+     Data logged. New task added to the matrix:
        [T][ ] read book
-     Now you have 1 tasks in the list.
+     Now you have 1 tasks in the matrix.
     ____________________________________________________________
     ____________________________________________________________
-     OOPS!!! I don't recognize that command. Valid commands are: todo, deadline, event, list, mark, unmark, delete, schedule, find, help, bye.
+     SYSTEM FAULT: I don't recognize that command. Valid commands are: todo, deadline, event, list, mark, unmark, delete, schedule, find, help, bye.
     ____________________________________________________________
     ____________________________________________________________
-     Here are the tasks in your list:
+     Accessing database... Current task matrix:
      1.[T][ ] read book
     ____________________________________________________________
     ____________________________________________________________
-     Bye. Hope to see you again soon!
+     System shutting down. End of line.
     ____________________________________________________________
 ```
 
@@ -123,24 +123,24 @@ bye
   \ \ / /|  _| | |     | || | | | |_) |
    \ V / | |___| |___  | || |_| |  _ <
     \_/  |______\____| |_| \___/|_| \_\
-     Hello! I'm Vector
-     What can I do for you?
+     Initialization complete. I am Vector, your personal cybernetic assistant.
+     Awaiting input protocols.
     ____________________________________________________________
     ____________________________________________________________
-     Got it. I've added this task:
+     Data logged. New task added to the matrix:
        [T][ ] read book
-     Now you have 1 tasks in the list.
+     Now you have 1 tasks in the matrix.
     ____________________________________________________________
     ____________________________________________________________
-     OK, I've marked this task as not done yet:
+     Task execution reverted. Status updated to: PENDING:
        [T][ ] read book
     ____________________________________________________________
     ____________________________________________________________
-     Here are the tasks in your list:
+     Accessing database... Current task matrix:
      1.[T][ ] read book
     ____________________________________________________________
     ____________________________________________________________
-     Bye. Hope to see you again soon!
+     System shutting down. End of line.
     ____________________________________________________________
 ```
 
@@ -164,28 +164,28 @@ bye
   \ \ / /|  _| | |     | || | | | |_) |
    \ V / | |___| |___  | || |_| |  _ <
     \_/  |______\____| |_| \___/|_| \_\
-     Hello! I'm Vector
-     What can I do for you?
+     Initialization complete. I am Vector, your personal cybernetic assistant.
+     Awaiting input protocols.
     ____________________________________________________________
     ____________________________________________________________
-     Got it. I've added this task:
+     Data logged. New task added to the matrix:
        [T][ ] submit report
-     Now you have 1 tasks in the list.
+     Now you have 1 tasks in the matrix.
     ____________________________________________________________
     ____________________________________________________________
-     Nice! I've marked this task as done:
+     Task execution verified. Status updated to: COMPLETE:
        [T][X] submit report
     ____________________________________________________________
     ____________________________________________________________
-     OK, I've marked this task as not done yet:
+     Task execution reverted. Status updated to: PENDING:
        [T][ ] submit report
     ____________________________________________________________
     ____________________________________________________________
-     Here are the tasks in your list:
+     Accessing database... Current task matrix:
      1.[T][ ] submit report
     ____________________________________________________________
     ____________________________________________________________
-     Bye. Hope to see you again soon!
+     System shutting down. End of line.
     ____________________________________________________________
 ```
 
@@ -209,28 +209,28 @@ bye
   \ \ / /|  _| | |     | || | | | |_) |
    \ V / | |___| |___  | || |_| |  _ <
     \_/  |______\____| |_| \___/|_| \_\
-     Hello! I'm Vector
-     What can I do for you?
+     Initialization complete. I am Vector, your personal cybernetic assistant.
+     Awaiting input protocols.
     ____________________________________________________________
     ____________________________________________________________
-     Got it. I've added this task:
+     Data logged. New task added to the matrix:
        [T][ ] read book
-     Now you have 1 tasks in the list.
+     Now you have 1 tasks in the matrix.
     ____________________________________________________________
     ____________________________________________________________
-     Nice! I've marked this task as done:
+     Task execution verified. Status updated to: COMPLETE:
        [T][X] read book
     ____________________________________________________________
     ____________________________________________________________
-     Nice! I've marked this task as done:
+     Task execution verified. Status updated to: COMPLETE:
        [T][X] read book
     ____________________________________________________________
     ____________________________________________________________
-     Here are the tasks in your list:
+     Accessing database... Current task matrix:
      1.[T][X] read book
     ____________________________________________________________
     ____________________________________________________________
-     Bye. Hope to see you again soon!
+     System shutting down. End of line.
     ____________________________________________________________
 ```
 
@@ -252,20 +252,20 @@ bye
   \ \ / /|  _| | |     | || | | | |_) |
    \ V / | |___| |___  | || |_| |  _ <
     \_/  |______\____| |_| \___/|_| \_\
-     Hello! I'm Vector
-     What can I do for you?
+     Initialization complete. I am Vector, your personal cybernetic assistant.
+     Awaiting input protocols.
     ____________________________________________________________
     ____________________________________________________________
-     Got it. I've added this task:
+     Data logged. New task added to the matrix:
        [T][ ] read book
-     Now you have 1 tasks in the list.
+     Now you have 1 tasks in the matrix.
     ____________________________________________________________
     ____________________________________________________________
-     Here are the tasks in your list:
+     Accessing database... Current task matrix:
      1.[T][ ] read book
     ____________________________________________________________
     ____________________________________________________________
-     Bye. Hope to see you again soon!
+     System shutting down. End of line.
     ____________________________________________________________
 ```
 
@@ -288,23 +288,23 @@ bye
   \ \ / /|  _| | |     | || | | | |_) |
    \ V / | |___| |___  | || |_| |  _ <
     \_/  |______\____| |_| \___/|_| \_\
-     Hello! I'm Vector
-     What can I do for you?
+     Initialization complete. I am Vector, your personal cybernetic assistant.
+     Awaiting input protocols.
     ____________________________________________________________
     ____________________________________________________________
-     Got it. I've added this task:
+     Data logged. New task added to the matrix:
        [T][ ] read book
-     Now you have 1 tasks in the list.
+     Now you have 1 tasks in the matrix.
     ____________________________________________________________
     ____________________________________________________________
-     OOPS!!! A todo task must have a description. Please try again.
+     SYSTEM FAULT: A todo task must have a description. Please try again.
     ____________________________________________________________
     ____________________________________________________________
-     Here are the tasks in your list:
+     Accessing database... Current task matrix:
      1.[T][ ] read book
     ____________________________________________________________
     ____________________________________________________________
-     Bye. Hope to see you again soon!
+     System shutting down. End of line.
     ____________________________________________________________
 ```
 
@@ -326,20 +326,20 @@ bye
   \ \ / /|  _| | |     | || | | | |_) |
    \ V / | |___| |___  | || |_| |  _ <
     \_/  |______\____| |_| \___/|_| \_\
-     Hello! I'm Vector
-     What can I do for you?
+     Initialization complete. I am Vector, your personal cybernetic assistant.
+     Awaiting input protocols.
     ____________________________________________________________
     ____________________________________________________________
-     Got it. I've added this task:
+     Data logged. New task added to the matrix:
        [D][ ] submit report (by: Oct 15 2019, 6:00 pm)
-     Now you have 1 tasks in the list.
+     Now you have 1 tasks in the matrix.
     ____________________________________________________________
     ____________________________________________________________
-     Here are the tasks in your list:
+     Accessing database... Current task matrix:
      1.[D][ ] submit report (by: Oct 15 2019, 6:00 pm)
     ____________________________________________________________
     ____________________________________________________________
-     Bye. Hope to see you again soon!
+     System shutting down. End of line.
     ____________________________________________________________
 ```
 
@@ -362,23 +362,23 @@ bye
   \ \ / /|  _| | |     | || | | | |_) |
    \ V / | |___| |___  | || |_| |  _ <
     \_/  |______\____| |_| \___/|_| \_\
-     Hello! I'm Vector
-     What can I do for you?
+     Initialization complete. I am Vector, your personal cybernetic assistant.
+     Awaiting input protocols.
     ____________________________________________________________
     ____________________________________________________________
-     Got it. I've added this task:
+     Data logged. New task added to the matrix:
        [D][ ] submit report (by: Oct 15 2019, 6:00 pm)
-     Now you have 1 tasks in the list.
+     Now you have 1 tasks in the matrix.
     ____________________________________________________________
     ____________________________________________________________
-     OOPS!!! The deadline format is incorrect. Use: deadline <task> /by <date/time>
+     SYSTEM FAULT: The deadline format is incorrect. Use: deadline <task> /by <date/time>
     ____________________________________________________________
     ____________________________________________________________
-     Here are the tasks in your list:
+     Accessing database... Current task matrix:
      1.[D][ ] submit report (by: Oct 15 2019, 6:00 pm)
     ____________________________________________________________
     ____________________________________________________________
-     Bye. Hope to see you again soon!
+     System shutting down. End of line.
     ____________________________________________________________
 ```
 
@@ -400,20 +400,20 @@ bye
   \ \ / /|  _| | |     | || | | | |_) |
    \ V / | |___| |___  | || |_| |  _ <
     \_/  |______\____| |_| \___/|_| \_\
-     Hello! I'm Vector
-     What can I do for you?
+     Initialization complete. I am Vector, your personal cybernetic assistant.
+     Awaiting input protocols.
     ____________________________________________________________
     ____________________________________________________________
-     Got it. I've added this task:
+     Data logged. New task added to the matrix:
        [E][ ] team meeting (from: Oct 14 2019, 12:00 am to: Oct 15 2019, 6:00 pm)
-     Now you have 1 tasks in the list.
+     Now you have 1 tasks in the matrix.
     ____________________________________________________________
     ____________________________________________________________
-     Here are the tasks in your list:
+     Accessing database... Current task matrix:
      1.[E][ ] team meeting (from: Oct 14 2019, 12:00 am to: Oct 15 2019, 6:00 pm)
     ____________________________________________________________
     ____________________________________________________________
-     Bye. Hope to see you again soon!
+     System shutting down. End of line.
     ____________________________________________________________
 ```
 
@@ -436,23 +436,23 @@ bye
   \ \ / /|  _| | |     | || | | | |_) |
    \ V / | |___| |___  | || |_| |  _ <
     \_/  |______\____| |_| \___/|_| \_\
-     Hello! I'm Vector
-     What can I do for you?
+     Initialization complete. I am Vector, your personal cybernetic assistant.
+     Awaiting input protocols.
     ____________________________________________________________
     ____________________________________________________________
-     Got it. I've added this task:
+     Data logged. New task added to the matrix:
        [E][ ] team meeting (from: Oct 14 2019, 12:00 am to: Oct 15 2019, 6:00 pm)
-     Now you have 1 tasks in the list.
+     Now you have 1 tasks in the matrix.
     ____________________________________________________________
     ____________________________________________________________
-     OOPS!!! The event format is incorrect. Use: event <task> /from <start> /to <end>
+     SYSTEM FAULT: The event format is incorrect. Use: event <task> /from <start> /to <end>
     ____________________________________________________________
     ____________________________________________________________
-     Here are the tasks in your list:
+     Accessing database... Current task matrix:
      1.[E][ ] team meeting (from: Oct 14 2019, 12:00 am to: Oct 15 2019, 6:00 pm)
     ____________________________________________________________
     ____________________________________________________________
-     Bye. Hope to see you again soon!
+     System shutting down. End of line.
     ____________________________________________________________
 ```
 
@@ -476,30 +476,30 @@ bye
   \ \ / /|  _| | |     | || | | | |_) |
    \ V / | |___| |___  | || |_| |  _ <
     \_/  |______\____| |_| \___/|_| \_\
-     Hello! I'm Vector
-     What can I do for you?
+     Initialization complete. I am Vector, your personal cybernetic assistant.
+     Awaiting input protocols.
     ____________________________________________________________
     ____________________________________________________________
-     Got it. I've added this task:
+     Data logged. New task added to the matrix:
        [T][ ] read book
-     Now you have 1 tasks in the list.
+     Now you have 1 tasks in the matrix.
     ____________________________________________________________
     ____________________________________________________________
-     Got it. I've added this task:
+     Data logged. New task added to the matrix:
        [T][ ] return book
-     Now you have 2 tasks in the list.
+     Now you have 2 tasks in the matrix.
     ____________________________________________________________
     ____________________________________________________________
-     Noted. I've removed this task:
+     Task erased from memory banks:
        [T][ ] return book
-     Now you have 1 tasks in the list.
+     Now you have 1 tasks in the matrix.
     ____________________________________________________________
     ____________________________________________________________
-     Here are the tasks in your list:
+     Accessing database... Current task matrix:
      1.[T][ ] read book
     ____________________________________________________________
     ____________________________________________________________
-     Bye. Hope to see you again soon!
+     System shutting down. End of line.
     ____________________________________________________________
 ```
 
@@ -522,26 +522,26 @@ bye
   \ \ / /|  _| | |     | || | | | |_) |
    \ V / | |___| |___  | || |_| |  _ <
     \_/  |______\____| |_| \___/|_| \_\
-     Hello! I'm Vector
-     What can I do for you?
+     Initialization complete. I am Vector, your personal cybernetic assistant.
+     Awaiting input protocols.
     ____________________________________________________________
     ____________________________________________________________
-     Got it. I've added this task:
+     Data logged. New task added to the matrix:
        [D][ ] assignment (by: Dec 2 2019, 11:59 pm)
-     Now you have 1 tasks in the list.
+     Now you have 1 tasks in the matrix.
     ____________________________________________________________
     ____________________________________________________________
-     Got it. I've added this task:
+     Data logged. New task added to the matrix:
        [E][ ] conference (from: Dec 1 2019, 12:00 am to: Dec 3 2019, 12:00 am)
-     Now you have 2 tasks in the list.
+     Now you have 2 tasks in the matrix.
     ____________________________________________________________
     ____________________________________________________________
-     Here are the tasks occurring on 2019-12-02:
+     Scanning schedule for 2019-12-02. Results:
      1.[D][ ] assignment (by: Dec 2 2019, 11:59 pm)
      2.[E][ ] conference (from: Dec 1 2019, 12:00 am to: Dec 3 2019, 12:00 am)
     ____________________________________________________________
     ____________________________________________________________
-     Bye. Hope to see you again soon!
+     System shutting down. End of line.
     ____________________________________________________________
 ```
 
@@ -567,39 +567,39 @@ bye
   \ \ / /|  _| | |     | || | | | |_) |
    \ V / | |___| |___  | || |_| |  _ <
     \_/  |______\____| |_| \___/|_| \_\
-     Hello! I'm Vector
-     What can I do for you?
+     Initialization complete. I am Vector, your personal cybernetic assistant.
+     Awaiting input protocols.
     ____________________________________________________________
     ____________________________________________________________
-     Got it. I've added this task:
+     Data logged. New task added to the matrix:
        [T][ ] read book
-     Now you have 1 tasks in the list.
+     Now you have 1 tasks in the matrix.
     ____________________________________________________________
     ____________________________________________________________
-     Got it. I've added this task:
+     Data logged. New task added to the matrix:
        [D][ ] return book (by: Jun 6 2023, 11:59 pm)
-     Now you have 2 tasks in the list.
+     Now you have 2 tasks in the matrix.
     ____________________________________________________________
     ____________________________________________________________
-     Got it. I've added this task:
+     Data logged. New task added to the matrix:
        [T][ ] buy groceries
-     Now you have 3 tasks in the list.
+     Now you have 3 tasks in the matrix.
     ____________________________________________________________
     ____________________________________________________________
-     Nice! I've marked this task as done:
+     Task execution verified. Status updated to: COMPLETE:
        [T][X] read book
     ____________________________________________________________
     ____________________________________________________________
-     Nice! I've marked this task as done:
+     Task execution verified. Status updated to: COMPLETE:
        [D][X] return book (by: Jun 6 2023, 11:59 pm)
     ____________________________________________________________
     ____________________________________________________________
-     Here are the matching tasks in your list:
+     Search protocol complete. Query results:
      1.[T][X] read book
      2.[D][X] return book (by: Jun 6 2023, 11:59 pm)
     ____________________________________________________________
     ____________________________________________________________
-     Bye. Hope to see you again soon!
+     System shutting down. End of line.
     ____________________________________________________________
 ```
 
@@ -620,11 +620,11 @@ bye
   \ \ / /|  _| | |     | || | | | |_) |
    \ V / | |___| |___  | || |_| |  _ <
     \_/  |______\____| |_| \___/|_| \_\
-     Hello! I'm Vector
-     What can I do for you?
+     Initialization complete. I am Vector, your personal cybernetic assistant.
+     Awaiting input protocols.
     ____________________________________________________________
     ____________________________________________________________
-     Here are the commands you can use:
+     Displaying available system commands:
      1. todo <description> - Adds a todo task
      2. deadline <description> /by <date/time> - Adds a deadline task
      3. event <description> /from <start> /to <end> - Adds an event
@@ -638,6 +638,6 @@ bye
      11. bye - Exits the application
     ____________________________________________________________
     ____________________________________________________________
-     Bye. Hope to see you again soon!
+     System shutting down. End of line.
     ____________________________________________________________
 ```

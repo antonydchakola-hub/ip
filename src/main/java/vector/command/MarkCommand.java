@@ -33,7 +33,7 @@ public class MarkCommand extends Command {
         try {
             tasks.get(index).markAsDone();
             storage.save(tasks.getTasks());
-            return "Nice! I've marked this task as done:\n  " + tasks.get(index).toString();
+            return "Task execution verified. Status updated to: COMPLETE:\n  " + tasks.get(index).toString();
         } catch (IndexOutOfBoundsException e) {
             throw new VectorException("That task number does not exist in your list.");
         }
