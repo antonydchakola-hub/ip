@@ -64,5 +64,12 @@ public class MainWindow extends AnchorPane {
                 DialogBox.getVectorDialog(response, commandType)
         );
         userInput.clear();
+
+        if (commandType.equals("ExitCommand")) {
+            // Wait 1.5 seconds so the user can read the farewell message, then exit
+            javafx.animation.PauseTransition delay = new javafx.animation.PauseTransition(javafx.util.Duration.seconds(1.5));
+            delay.setOnFinished(event -> javafx.application.Platform.exit());
+            delay.play();
+        }
     }
 }
