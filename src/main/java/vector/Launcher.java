@@ -3,12 +3,12 @@ package vector;
 import javafx.application.Application;
 
 /**
- * A launcher class to workaround classpath issues.
+ * Provides a launcher class to workaround classpath issues.
  */
 public class Launcher {
 
     /**
-     * Main method to start the Launcher and launch JavaFX application.
+     * Starts the Launcher and launches the JavaFX application.
      *
      * @param args Command-line arguments.
      */

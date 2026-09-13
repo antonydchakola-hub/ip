@@ -10,14 +10,14 @@ import java.util.List;
 import vector.VectorException;
 
 /**
- * Utility class for parsing and formatting dates and times.
+ * Parses and formats dates and times.
  */
 public class DateTimeParser {
     private static final List<DateTimeFormatter> FORMATTERS = Arrays.asList(
-            DateTimeFormatter.ofPattern("d/M/yyyy HHmm"),
-            DateTimeFormatter.ofPattern("yyyy-MM-dd HHmm"),
-            DateTimeFormatter.ofPattern("d/M/yyyy"),
-            DateTimeFormatter.ofPattern("yyyy-MM-dd")
+            DateTimeFormatter.ofPattern("d/M/uuuu HHmm").withResolverStyle(java.time.format.ResolverStyle.STRICT),
+            DateTimeFormatter.ofPattern("uuuu-MM-dd HHmm").withResolverStyle(java.time.format.ResolverStyle.STRICT),
+            DateTimeFormatter.ofPattern("d/M/uuuu").withResolverStyle(java.time.format.ResolverStyle.STRICT),
+            DateTimeFormatter.ofPattern("uuuu-MM-dd").withResolverStyle(java.time.format.ResolverStyle.STRICT)
     );
 
     private static final DateTimeFormatter DISPLAY_FORMAT = DateTimeFormatter.ofPattern("MMM d yyyy, h:mm a");

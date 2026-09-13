@@ -7,7 +7,7 @@ import vector.task.TaskList;
 import vector.ui.Ui;
 
 /**
- * The main entry point for the Vector application.
+ * Represents the main entry point for the Vector application.
  * Initializes the UI, Storage, and TaskList, and starts the main application loop.
  */
 public class Vector {
@@ -25,7 +25,12 @@ public class Vector {
         assert filePath != null && !filePath.trim().isEmpty() : "File path cannot be null or empty";
         ui = new Ui();
         storage = new Storage(filePath);
-        tasks = new TaskList(storage.load());
+        try {
+            tasks = new TaskList(storage.load());
+        } catch (VectorException e) {
+            ui.showError(e.getMessage());
+            tasks = new TaskList();
+        }
     }
 
     /**
@@ -93,7 +98,7 @@ public class Vector {
     }
 
     /**
-     * Main method to start the Vector application.
+     * Starts the Vector application.
      *
      * @param args Command-line arguments. Accepts "--clear-data" to clear existing task data.
      */

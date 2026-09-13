@@ -28,6 +28,9 @@ public class Parser {
      */
     public static Command parse(String fullCommand) throws VectorException {
         assert fullCommand != null : "Command string should not be null";
+        if (fullCommand.contains("|")) {
+            throw new VectorException("The character '|' is reserved and cannot be used in tasks.");
+        }
         String[] parts = fullCommand.split(" ", 2);
         String action = parts[0].trim().toLowerCase();
 
@@ -108,11 +111,14 @@ public class Parser {
             throw new VectorException("A deadline task requires a description and a /by date. "
                     + "Please try again.");
         }
-        String[] deadlineParts = parts[1].split(" /by ");
+        String[] deadlineParts = parts[1].split("\\s+/by\\s+");
         if (deadlineParts.length < 2 || deadlineParts[0].trim().isEmpty()
                 || deadlineParts[1].trim().isEmpty()) {
             throw new VectorException("The deadline format is incorrect. "
                     + "Use: deadline <task> /by <date/time>");
+        }
+        if (deadlineParts.length > 2) {
+            throw new VectorException("Multiple /by parameters are not allowed.");
         }
         return new AddCommand(new Deadline(deadlineParts[0].trim(), deadlineParts[1].trim()));
     }
@@ -121,17 +127,23 @@ public class Parser {
         if (parts.length < 2 || parts[1].trim().isEmpty()) {
             throw new VectorException("An event task requires a description, a /from time, and a /to time.");
         }
-        String[] eventParts = parts[1].split(" /from ");
+        String[] eventParts = parts[1].split("\\s+/from\\s+");
         if (eventParts.length < 2) {
             throw new VectorException("The event format is incomplete. "
                     + "Ensure you have a /from time and a /to time.");
         }
+        if (eventParts.length > 2) {
+            throw new VectorException("Multiple /from parameters are not allowed.");
+        }
         String desc = eventParts[0].trim();
-        String[] timeParts = eventParts[1].split(" /to ");
+        String[] timeParts = eventParts[1].split("\\s+/to\\s+");
         if (timeParts.length < 2 || desc.isEmpty() || timeParts[0].trim().isEmpty()
                 || timeParts[1].trim().isEmpty()) {
             throw new VectorException("The event format is incorrect. "
                     + "Use: event <task> /from <start> /to <end>");
+        }
+        if (timeParts.length > 2) {
+            throw new VectorException("Multiple /to parameters are not allowed.");
         }
         return new AddCommand(new Event(desc, timeParts[0].trim(), timeParts[1].trim()));
     }

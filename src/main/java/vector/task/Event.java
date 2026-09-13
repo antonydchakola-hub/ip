@@ -22,10 +22,13 @@ public class Event extends Task {
      * @param to The end date/time of the event.
      * @throws VectorException if the date formats are invalid.
      */
-    public Event(String description, String from, String to) throws VectorException {
+    public Event(String description, String from, String to) throws vector.VectorException {
         super(description);
         this.fromTime = DateTimeParser.parse(from);
         this.toTime = DateTimeParser.parse(to);
+        if (!this.fromTime.isBefore(this.toTime)) {
+            throw new vector.VectorException("Event start time must be before end time.");
+        }
     }
 
     @Override
@@ -45,5 +48,14 @@ public class Event extends Task {
     public String toFileFormat() {
         return "E" + super.toFileFormat() + " | " + DateTimeParser.formatForFile(fromTime)
                 + " | " + DateTimeParser.formatForFile(toTime);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (!super.equals(obj)) {
+            return false;
+        }
+        Event event = (Event) obj;
+        return fromTime.equals(event.fromTime) && toTime.equals(event.toTime);
     }
 }
