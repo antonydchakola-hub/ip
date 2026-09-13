@@ -4,7 +4,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.media.AudioClip;
@@ -24,8 +23,7 @@ public class MainWindow extends AnchorPane {
 
     private Vector vector;
 
-    private Image userImage = new Image(this.getClass().getResourceAsStream("/images/DaUser.png"));
-    private Image vectorImage = new Image(this.getClass().getResourceAsStream("/images/DaDuke.png"));
+
 
     /**
      * Initializes the controller class.
@@ -62,8 +60,8 @@ public class MainWindow extends AnchorPane {
         }
 
         dialogContainer.getChildren().addAll(
-                DialogBox.getUserDialog(input, userImage),
-                DialogBox.getVectorDialog(response, vectorImage, commandType)
+                DialogBox.getUserDialog(input),
+                DialogBox.getVectorDialog(response, commandType)
         );
         userInput.clear();
     }
