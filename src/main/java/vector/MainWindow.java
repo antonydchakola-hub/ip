@@ -67,7 +67,8 @@ public class MainWindow extends AnchorPane {
 
         if (commandType.equals("ExitCommand")) {
             // Wait 1.5 seconds so the user can read the farewell message, then exit
-            javafx.animation.PauseTransition delay = new javafx.animation.PauseTransition(javafx.util.Duration.seconds(1.5));
+            javafx.animation.PauseTransition delay = new javafx.animation.PauseTransition(
+                    javafx.util.Duration.seconds(1.5));
             delay.setOnFinished(event -> javafx.application.Platform.exit());
             delay.play();
         }
