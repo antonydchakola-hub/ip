@@ -15,9 +15,9 @@ public class EventTest {
     public void toString_validEvent_correctFormat() {
         try {
             Event e = new Event("project meeting", "2023-08-01 1400", "2023-08-01 1600");
-            assertEquals("[E][ ] project meeting (from: Aug 1 2023, 2:00 pm to: Aug 1 2023, 4:00 pm)", e.toString());
+            assertEquals("[E][ ] project meeting (from: Aug 1 2023, 2:00 PM to: Aug 1 2023, 4:00 PM)", e.toString());
             e.markAsDone();
-            assertEquals("[E][X] project meeting (from: Aug 1 2023, 2:00 pm to: Aug 1 2023, 4:00 pm)", e.toString());
+            assertEquals("[E][X] project meeting (from: Aug 1 2023, 2:00 PM to: Aug 1 2023, 4:00 PM)", e.toString());
         } catch (Exception ex) {
             fail("Exception thrown on valid event: " + ex.getMessage());
         }

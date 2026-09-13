@@ -15,9 +15,9 @@ public class DeadlineTest {
     public void toString_validDeadline_correctFormat() {
         try {
             Deadline d = new Deadline("return book", "2023-06-06 2359");
-            assertEquals("[D][ ] return book (by: Jun 6 2023, 11:59 pm)", d.toString());
+            assertEquals("[D][ ] return book (by: Jun 6 2023, 11:59 PM)", d.toString());
             d.markAsDone();
-            assertEquals("[D][X] return book (by: Jun 6 2023, 11:59 pm)", d.toString());
+            assertEquals("[D][X] return book (by: Jun 6 2023, 11:59 PM)", d.toString());
         } catch (Exception e) {
             fail("Exception thrown on valid deadline: " + e.getMessage());
         }

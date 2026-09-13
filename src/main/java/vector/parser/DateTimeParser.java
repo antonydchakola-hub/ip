@@ -20,7 +20,8 @@ public class DateTimeParser {
             DateTimeFormatter.ofPattern("uuuu-MM-dd").withResolverStyle(java.time.format.ResolverStyle.STRICT)
     );
 
-    private static final DateTimeFormatter DISPLAY_FORMAT = DateTimeFormatter.ofPattern("MMM d yyyy, h:mm a");
+    private static final DateTimeFormatter DISPLAY_FORMAT = DateTimeFormatter.ofPattern(
+            "MMM d yyyy, h:mm a", java.util.Locale.ENGLISH);
     private static final DateTimeFormatter FILE_FORMAT = DateTimeFormatter.ofPattern("yyyy-MM-dd HHmm");
 
     /**

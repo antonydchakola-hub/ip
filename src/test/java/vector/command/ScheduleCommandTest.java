@@ -55,8 +55,8 @@ public class ScheduleCommandTest {
             String result = command.execute(tasks, ui, storage);
 
             assertTrue(result.contains("Scanning schedule for 2023-08-01. Results:"));
-            assertTrue(result.contains("1.[D][ ] return book (by: Aug 1 2023, 11:59 pm)"));
-            assertTrue(result.contains("2.[E][ ] project meeting (from: Aug 1 2023, 2:00 pm to: Aug 1 2023, 4:00 pm)"));
+            assertTrue(result.contains("1.[D][ ] return book (by: Aug 1 2023, 11:59 PM)"));
+            assertTrue(result.contains("2.[E][ ] project meeting (from: Aug 1 2023, 2:00 PM to: Aug 1 2023, 4:00 PM)"));
             assertFalse(result.contains("submit assignment"));
             assertFalse(result.contains("read book"));
         } catch (VectorException e) {
