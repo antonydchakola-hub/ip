@@ -59,3 +59,4 @@ public class Event extends Task {
         return fromTime.equals(event.fromTime) && toTime.equals(event.toTime);
     }
 }
+
