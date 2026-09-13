@@ -331,12 +331,12 @@ bye
     ____________________________________________________________
     ____________________________________________________________
      Data logged. New task added to the matrix:
-       [D][ ] submit report (by: Oct 15 2019, 6:00 pm)
+       [D][ ] submit report (by: Oct 15 2019, 6:00 PM)
      Now you have 1 tasks in the matrix.
     ____________________________________________________________
     ____________________________________________________________
      Accessing database... Current task matrix:
-     1.[D][ ] submit report (by: Oct 15 2019, 6:00 pm)
+     1.[D][ ] submit report (by: Oct 15 2019, 6:00 PM)
     ____________________________________________________________
     ____________________________________________________________
      System shutting down. End of line.
@@ -367,7 +367,7 @@ bye
     ____________________________________________________________
     ____________________________________________________________
      Data logged. New task added to the matrix:
-       [D][ ] submit report (by: Oct 15 2019, 6:00 pm)
+       [D][ ] submit report (by: Oct 15 2019, 6:00 PM)
      Now you have 1 tasks in the matrix.
     ____________________________________________________________
     ____________________________________________________________
@@ -375,7 +375,7 @@ bye
     ____________________________________________________________
     ____________________________________________________________
      Accessing database... Current task matrix:
-     1.[D][ ] submit report (by: Oct 15 2019, 6:00 pm)
+     1.[D][ ] submit report (by: Oct 15 2019, 6:00 PM)
     ____________________________________________________________
     ____________________________________________________________
      System shutting down. End of line.
@@ -405,12 +405,12 @@ bye
     ____________________________________________________________
     ____________________________________________________________
      Data logged. New task added to the matrix:
-       [E][ ] team meeting (from: Oct 14 2019, 12:00 am to: Oct 15 2019, 6:00 pm)
+       [E][ ] team meeting (from: Oct 14 2019, 12:00 am to: Oct 15 2019, 6:00 PM)
      Now you have 1 tasks in the matrix.
     ____________________________________________________________
     ____________________________________________________________
      Accessing database... Current task matrix:
-     1.[E][ ] team meeting (from: Oct 14 2019, 12:00 am to: Oct 15 2019, 6:00 pm)
+     1.[E][ ] team meeting (from: Oct 14 2019, 12:00 am to: Oct 15 2019, 6:00 PM)
     ____________________________________________________________
     ____________________________________________________________
      System shutting down. End of line.
@@ -441,7 +441,7 @@ bye
     ____________________________________________________________
     ____________________________________________________________
      Data logged. New task added to the matrix:
-       [E][ ] team meeting (from: Oct 14 2019, 12:00 am to: Oct 15 2019, 6:00 pm)
+       [E][ ] team meeting (from: Oct 14 2019, 12:00 am to: Oct 15 2019, 6:00 PM)
      Now you have 1 tasks in the matrix.
     ____________________________________________________________
     ____________________________________________________________
@@ -449,7 +449,7 @@ bye
     ____________________________________________________________
     ____________________________________________________________
      Accessing database... Current task matrix:
-     1.[E][ ] team meeting (from: Oct 14 2019, 12:00 am to: Oct 15 2019, 6:00 pm)
+     1.[E][ ] team meeting (from: Oct 14 2019, 12:00 am to: Oct 15 2019, 6:00 PM)
     ____________________________________________________________
     ____________________________________________________________
      System shutting down. End of line.
@@ -527,18 +527,18 @@ bye
     ____________________________________________________________
     ____________________________________________________________
      Data logged. New task added to the matrix:
-       [D][ ] assignment (by: Dec 2 2019, 11:59 pm)
+       [D][ ] assignment (by: Dec 2 2019, 11:59 PM)
      Now you have 1 tasks in the matrix.
     ____________________________________________________________
     ____________________________________________________________
      Data logged. New task added to the matrix:
-       [E][ ] conference (from: Dec 1 2019, 12:00 am to: Dec 3 2019, 12:00 am)
+       [E][ ] conference (from: Dec 1 2019, 12:00 am to: Dec 3 2019, 12:00 AM)
      Now you have 2 tasks in the matrix.
     ____________________________________________________________
     ____________________________________________________________
      Scanning schedule for 2019-12-02. Results:
-     1.[D][ ] assignment (by: Dec 2 2019, 11:59 pm)
-     2.[E][ ] conference (from: Dec 1 2019, 12:00 am to: Dec 3 2019, 12:00 am)
+     1.[D][ ] assignment (by: Dec 2 2019, 11:59 PM)
+     2.[E][ ] conference (from: Dec 1 2019, 12:00 am to: Dec 3 2019, 12:00 AM)
     ____________________________________________________________
     ____________________________________________________________
      System shutting down. End of line.
@@ -577,7 +577,7 @@ bye
     ____________________________________________________________
     ____________________________________________________________
      Data logged. New task added to the matrix:
-       [D][ ] return book (by: Jun 6 2023, 11:59 pm)
+       [D][ ] return book (by: Jun 6 2023, 11:59 PM)
      Now you have 2 tasks in the matrix.
     ____________________________________________________________
     ____________________________________________________________
@@ -591,12 +591,12 @@ bye
     ____________________________________________________________
     ____________________________________________________________
      Task execution verified. Status updated to: COMPLETE:
-       [D][X] return book (by: Jun 6 2023, 11:59 pm)
+       [D][X] return book (by: Jun 6 2023, 11:59 PM)
     ____________________________________________________________
     ____________________________________________________________
      Search protocol complete. Query results:
      1.[T][X] read book
-     2.[D][X] return book (by: Jun 6 2023, 11:59 pm)
+     2.[D][X] return book (by: Jun 6 2023, 11:59 PM)
     ____________________________________________________________
     ____________________________________________________________
      System shutting down. End of line.
@@ -661,23 +661,23 @@ bye
   \ \ / /|  _| | |     | || | | | |_) |
    \ V / | |___| |___  | || |_| |  _ <
     \_/  |______\____| |_| \___/|_| \_\
-     Hello! I'm Vector
-     What can I do for you?
+     Initialization complete. I am Vector, your personal cybernetic assistant.
+     Awaiting input protocols.
     ____________________________________________________________
     ____________________________________________________________
-     Got it. I've added this task:
+     Data logged. New task added to the matrix:
        [T][ ] read book
-     Now you have 1 tasks in the list.
+     Now you have 1 tasks in the matrix.
     ____________________________________________________________
     ____________________________________________________________
-     OOPS!!! An identical task already exists in the matrix.
+     SYSTEM FAULT: An identical task already exists in the matrix.
     ____________________________________________________________
     ____________________________________________________________
-     Here are the tasks in your list:
+     Accessing database... Current task matrix:
      1.[T][ ] read book
     ____________________________________________________________
     ____________________________________________________________
-     Bye. Hope to see you again soon!
+     System shutting down. End of line.
     ____________________________________________________________
 ```
 
@@ -698,13 +698,13 @@ bye
   \ \ / /|  _| | |     | || | | | |_) |
    \ V / | |___| |___  | || |_| |  _ <
     \_/  |______\____| |_| \___/|_| \_\
-     Hello! I'm Vector
-     What can I do for you?
+     Initialization complete. I am Vector, your personal cybernetic assistant.
+     Awaiting input protocols.
     ____________________________________________________________
     ____________________________________________________________
-     OOPS!!! The character '|' is reserved and cannot be used in tasks.
+     SYSTEM FAULT: The character '|' is reserved and cannot be used in tasks.
     ____________________________________________________________
     ____________________________________________________________
-     Bye. Hope to see you again soon!
+     System shutting down. End of line.
     ____________________________________________________________
 ```

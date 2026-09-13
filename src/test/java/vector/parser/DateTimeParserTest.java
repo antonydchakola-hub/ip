@@ -58,6 +58,6 @@ public class DateTimeParserTest {
     public void format_validDateTime_success() {
         LocalDateTime dt = LocalDateTime.of(2023, 12, 2, 18, 30);
         String formatted = DateTimeParser.format(dt);
-        assertEquals("Dec 2 2023, 6:30 pm", formatted.replace("PM", "pm")); // Handle OS-specific AM/PM case
+        assertEquals("Dec 2 2023, 6:30 PM", formatted); // Handle OS-specific AM/PM case
     }
 }

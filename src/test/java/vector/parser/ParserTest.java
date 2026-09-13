@@ -130,4 +130,12 @@ public class ParserTest {
         });
         assertEquals("Please specify a keyword to find. For example: find book", thrown.getMessage());
     }
+
+    @Test
+    public void parse_inputWithPipeCharacter_throwsVectorException() {
+        VectorException thrown = assertThrows(VectorException.class, () -> {
+            Parser.parse("todo read | book");
+        });
+        assertEquals("The character '|' is reserved and cannot be used in tasks.", thrown.getMessage());
+    }
 }
