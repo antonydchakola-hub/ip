@@ -33,28 +33,26 @@ public class Storage {
      *
      * @return An ArrayList of tasks loaded from the file.
      */
-    public ArrayList<Task> load() {
+    public ArrayList<Task> load() throws vector.VectorException {
         ArrayList<Task> tasks = new ArrayList<>();
         java.io.File file = new java.io.File(this.filePath);
         if (!file.exists()) {
             return tasks;
         }
-        try {
-            java.util.Scanner scanner = new java.util.Scanner(file);
+        try (java.util.Scanner scanner = new java.util.Scanner(file)) {
             while (scanner.hasNextLine()) {
+                String line = scanner.nextLine();
                 try {
-                    String line = scanner.nextLine();
                     Task task = parseLineToTask(line);
                     if (task != null) {
                         tasks.add(task);
                     }
                 } catch (Exception e) {
-                    System.out.println("Skipping corrupted data line: " + e.getMessage());
+                    throw new vector.VectorException("Corrupted data found in save file: " + line);
                 }
             }
-            scanner.close();
         } catch (java.io.FileNotFoundException e) {
-            System.out.println("Data file not found.");
+            throw new vector.VectorException("Data file not found.");
         }
         return tasks;
     }
@@ -62,7 +60,7 @@ public class Storage {
     private Task parseLineToTask(String line) throws Exception {
         String[] parts = line.split(DELIMITER);
         if (parts.length < 3) {
-            return null;
+            throw new Exception("Incomplete data line");
         }
         String type = parts[0];
         String isDoneString = parts[1];
@@ -89,7 +87,7 @@ public class Storage {
      *
      * @param tasks The ArrayList of tasks to save.
      */
-    public void save(ArrayList<Task> tasks) {
+    public void save(ArrayList<Task> tasks) throws vector.VectorException {
         assert tasks != null : "Task list to save should not be null";
         try {
             java.io.File file = new java.io.File(this.filePath);
@@ -103,7 +101,7 @@ public class Storage {
             }
             fileWriter.close();
         } catch (java.io.IOException e) {
-            System.out.println("Something went wrong saving tasks: " + e.getMessage());
+            throw new vector.VectorException("Something went wrong saving tasks: " + e.getMessage());
         }
     }
 }

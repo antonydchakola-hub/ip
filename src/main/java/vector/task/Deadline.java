@@ -39,4 +39,13 @@ public class Deadline extends Task {
     public String toFileFormat() {
         return "D" + super.toFileFormat() + " | " + DateTimeParser.formatForFile(byTime);
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (!super.equals(obj)) {
+            return false;
+        }
+        Deadline deadline = (Deadline) obj;
+        return byTime.equals(deadline.byTime);
+    }
 }

@@ -29,7 +29,7 @@ public class AddCommand extends Command {
      * @return The response string.
      */
     @Override
-    public String execute(TaskList tasks, Ui ui, Storage storage) {
+    public String execute(TaskList tasks, Ui ui, Storage storage) throws vector.VectorException {
         tasks.add(task);
         storage.save(tasks.getTasks());
         return "Got it. I've added this task:\n  " + task.toString() + "\nNow you have "

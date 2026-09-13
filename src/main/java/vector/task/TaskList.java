@@ -30,8 +30,11 @@ public class TaskList {
      *
      * @param task The task to add.
      */
-    public void add(Task task) {
+    public void add(Task task) throws vector.VectorException {
         assert task != null : "Cannot add a null task to the list";
+        if (tasks.contains(task)) {
+            throw new vector.VectorException("An identical task already exists in the matrix.");
+        }
         tasks.add(task);
     }
 

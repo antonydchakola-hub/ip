@@ -27,6 +27,10 @@ public class StorageTest {
 
     @BeforeEach
     public void setUp() {
+        File file = new File(TEMP_FILE_PATH);
+        if (file.exists()) {
+            file.delete();
+        }
         storage = new Storage(TEMP_FILE_PATH);
     }
 
@@ -50,7 +54,12 @@ public class StorageTest {
             fail("Failed to setup test file.");
         }
 
-        ArrayList<Task> tasks = storage.load();
+        ArrayList<Task> tasks = new ArrayList<>();
+        try {
+            tasks = storage.load();
+        } catch (vector.VectorException e) {
+            fail("Exception thrown on valid file.");
+        }
         assertEquals(3, tasks.size());
 
         // Validate Todo
@@ -68,12 +77,17 @@ public class StorageTest {
 
     @Test
     public void load_fileNotFound_returnsEmptyList() {
-        ArrayList<Task> tasks = storage.load();
+        ArrayList<Task> tasks = new ArrayList<>();
+        try {
+            tasks = storage.load();
+        } catch (vector.VectorException e) {
+            fail("Exception thrown on file not found.");
+        }
         assertTrue(tasks.isEmpty());
     }
 
     @Test
-    public void load_corruptedLines_skipsCorrupted() {
+    public void load_corruptedLines_throwsException() {
         try {
             FileWriter fw = new FileWriter(TEMP_FILE_PATH);
             fw.write("T | 1 | read book\n");
@@ -84,10 +98,12 @@ public class StorageTest {
             fail("Failed to setup test file.");
         }
 
-        ArrayList<Task> tasks = storage.load();
-        assertEquals(2, tasks.size());
-        assertEquals("read book", tasks.get(0).getDescription());
-        assertEquals("buy groceries", tasks.get(1).getDescription());
+        try {
+            storage.load();
+            fail("Should have thrown VectorException for corrupted data.");
+        } catch (vector.VectorException e) {
+            assertTrue(e.getMessage().contains("Corrupted data found"));
+        }
     }
 
     @Test
@@ -102,7 +118,11 @@ public class StorageTest {
             fail("Failed to create deadline task");
         }
 
-        storage.save(tasks);
+        try {
+            storage.save(tasks);
+        } catch (vector.VectorException e) {
+            fail("Exception thrown on save.");
+        }
 
         try {
             String content = Files.readString(Path.of(TEMP_FILE_PATH));

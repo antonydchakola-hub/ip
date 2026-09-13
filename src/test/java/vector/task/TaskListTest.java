@@ -11,9 +11,13 @@ public class TaskListTest {
     @Test
     public void findTasks_matchingKeyword_returnsMatchingTasks() {
         TaskList taskList = new TaskList();
-        taskList.add(new Todo("read book"));
-        taskList.add(new Todo("return book"));
-        taskList.add(new Todo("buy groceries"));
+        try {
+            taskList.add(new Todo("read book"));
+            taskList.add(new Todo("return book"));
+            taskList.add(new Todo("buy groceries"));
+        } catch (vector.VectorException e) {
+            org.junit.jupiter.api.Assertions.fail("Should not throw exception.");
+        }
 
         ArrayList<Task> result = taskList.findTasks("book");
         assertEquals(2, result.size());
@@ -24,8 +28,12 @@ public class TaskListTest {
     @Test
     public void findTasks_noMatchingKeyword_returnsEmptyList() {
         TaskList taskList = new TaskList();
-        taskList.add(new Todo("read book"));
-        taskList.add(new Todo("return book"));
+        try {
+            taskList.add(new Todo("read book"));
+            taskList.add(new Todo("return book"));
+        } catch (vector.VectorException e) {
+            org.junit.jupiter.api.Assertions.fail("Should not throw exception.");
+        }
 
         ArrayList<Task> result = taskList.findTasks("grocery");
         assertEquals(0, result.size());

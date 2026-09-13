@@ -9,7 +9,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.media.AudioClip;
 
 /**
- * Controller for the main GUI.
+ * Controls the main GUI.
  */
 public class MainWindow extends AnchorPane {
     @FXML
