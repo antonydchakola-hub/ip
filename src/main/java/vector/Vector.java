@@ -43,10 +43,10 @@ public class Vector {
             return response;
         } catch (VectorException e) {
             commandType = "Error";
-            return "Error: " + e.getMessage();
+            return "SYSTEM FAULT: " + e.getMessage();
         } catch (NumberFormatException e) {
             commandType = "Error";
-            return "Error: Invalid task number format.";
+            return "SYSTEM FAULT: Invalid task number format.";
         }
     }
 

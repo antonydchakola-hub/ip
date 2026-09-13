@@ -34,8 +34,8 @@ public class DeleteCommand extends Command {
         try {
             Task removedTask = tasks.remove(index);
             storage.save(tasks.getTasks());
-            return "Noted. I've removed this task:\n  " + removedTask.toString()
-                    + "\nNow you have " + tasks.size() + " tasks in the list.";
+            return "Task erased from memory banks:\n  " + removedTask.toString()
+                    + "\nNow you have " + tasks.size() + " tasks in the matrix.";
         } catch (IndexOutOfBoundsException e) {
             throw new VectorException("That task number does not exist in your list.");
         }

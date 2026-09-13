@@ -33,6 +33,6 @@ public class FindCommand extends Command {
         String taskListStr = java.util.stream.IntStream.range(0, matchingTasks.size())
                 .mapToObj(i -> (i + 1) + "." + matchingTasks.get(i).toString())
                 .collect(java.util.stream.Collectors.joining("\n"));
-        return "Here are the matching tasks in your list:\n" + taskListStr;
+        return "Search protocol complete. Query results:\n" + taskListStr;
     }
 }

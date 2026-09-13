@@ -33,7 +33,7 @@ public class UnmarkCommand extends Command {
         try {
             tasks.get(index).unmarkAsDone();
             storage.save(tasks.getTasks());
-            return "OK, I've marked this task as not done yet:\n  " + tasks.get(index).toString();
+            return "Task execution reverted. Status updated to: PENDING:\n  " + tasks.get(index).toString();
         } catch (IndexOutOfBoundsException e) {
             throw new VectorException("That task number does not exist in your list.");
         }

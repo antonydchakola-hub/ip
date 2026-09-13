@@ -76,29 +76,34 @@
 }
 
 .vector-bubble .dialog-label {
-    -fx-background-color: #FFFFFF;
-    -fx-text-fill: #212529;
-    -fx-border-color: #E9ECEF;
+    -fx-background-color: #1E1E1E;
+    -fx-text-fill: #00FF00;
+    -fx-border-color: #00FF00;
     -fx-border-radius: 18px 18px 18px 0px;
     -fx-background-radius: 18px 18px 18px 0px;
+    -fx-font-family: "Consolas", "Courier New", monospace;
 }
 
 /* Dynamic command styles */
 .add-label {
-    -fx-background-color: #d1e7dd !important; /* Soft green */
-    -fx-border-color: #badbcc !important;
+    -fx-background-color: #1E1E1E !important;
+    -fx-border-color: #00FF00 !important;
+    -fx-text-fill: #00FF00 !important;
 }
 .marked-label {
-    -fx-background-color: #cff4fc !important; /* Soft blue/cyan */
-    -fx-border-color: #b6effb !important;
+    -fx-background-color: #1E1E1E !important;
+    -fx-border-color: #00FFFF !important; /* Cyan */
+    -fx-text-fill: #00FFFF !important;
 }
 .delete-label {
-    -fx-background-color: #f8d7da !important; /* Soft red */
-    -fx-border-color: #f5c2c7 !important;
+    -fx-background-color: #1E1E1E !important;
+    -fx-border-color: #FFA500 !important; /* Orange */
+    -fx-text-fill: #FFA500 !important;
 }
 .error-label {
-    -fx-background-color: #ffcccc !important; /* Bright soft red */
-    -fx-border-color: #ff9999 !important;
+    -fx-background-color: #1E1E1E !important;
+    -fx-border-color: #FF0000 !important; /* Red */
+    -fx-text-fill: #FF0000 !important;
 }
 
 /* ScrollBar Styling */
