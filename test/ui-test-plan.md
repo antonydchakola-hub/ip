@@ -661,23 +661,23 @@ bye
   \ \ / /|  _| | |     | || | | | |_) |
    \ V / | |___| |___  | || |_| |  _ <
     \_/  |______\____| |_| \___/|_| \_\
-     Hello! I'm Vector
-     What can I do for you?
+     Initialization complete. I am Vector, your personal cybernetic assistant.
+     Awaiting input protocols.
     ____________________________________________________________
     ____________________________________________________________
-     Got it. I've added this task:
+     Data logged. New task added to the matrix:
        [T][ ] read book
-     Now you have 1 tasks in the list.
+     Now you have 1 tasks in the matrix.
     ____________________________________________________________
     ____________________________________________________________
-     OOPS!!! An identical task already exists in the matrix.
+     SYSTEM FAULT: An identical task already exists in the matrix.
     ____________________________________________________________
     ____________________________________________________________
-     Here are the tasks in your list:
+     Accessing database... Current task matrix:
      1.[T][ ] read book
     ____________________________________________________________
     ____________________________________________________________
-     Bye. Hope to see you again soon!
+     System shutting down. End of line.
     ____________________________________________________________
 ```
 
@@ -698,13 +698,13 @@ bye
   \ \ / /|  _| | |     | || | | | |_) |
    \ V / | |___| |___  | || |_| |  _ <
     \_/  |______\____| |_| \___/|_| \_\
-     Hello! I'm Vector
-     What can I do for you?
+     Initialization complete. I am Vector, your personal cybernetic assistant.
+     Awaiting input protocols.
     ____________________________________________________________
     ____________________________________________________________
-     OOPS!!! The character '|' is reserved and cannot be used in tasks.
+     SYSTEM FAULT: The character '|' is reserved and cannot be used in tasks.
     ____________________________________________________________
     ____________________________________________________________
-     Bye. Hope to see you again soon!
+     System shutting down. End of line.
     ____________________________________________________________
 ```
